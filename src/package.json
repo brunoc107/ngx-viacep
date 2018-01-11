@@ -1,0 +1,29 @@
+{
+  "name": "@brunoc/ngx-viacep",
+  "version": "0.1.1",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunoc107/ngx-viacep.git"
+  },
+  "author": {
+    "name": "Bruno Carvalho",
+    "email": "brunocarvalho107@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brunoc107/ngx-viacep.git/issues"
+  },
+  "main": "brunoc-ngx-viacep.umd.js",
+  "module": "brunoc-ngx-viacep.js",
+  "jsnext:main": "brunoc-ngx-viacep.js",
+  "typings": "brunoc-ngx-viacep.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}

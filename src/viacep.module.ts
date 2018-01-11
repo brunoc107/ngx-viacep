@@ -8,15 +8,17 @@ import { ViacepService } from './viacep.service';
   imports: [
     CommonModule,
     HttpClientModule
+  ],
+  providers: [
+    ViacepService,
   ]
 })
 export class ViacepModule {
 
-  static forRoot(): ModuleWithProviders {
-
-    return {
-      ngModule: ViacepModule,
-      providers: [ViacepService]
-    };
-  }
+//   static forRoot(): ModuleWithProviders {
+//     return {
+//       ngModule: ViacepModule,
+//       providers: [ViacepService]
+//     };
+//   }
 }

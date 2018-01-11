@@ -79,7 +79,7 @@ this.viacep.buscarPorCep('01001000').then( ( endereco: Endereco ) => {
   console.log(error.descricao);
 });
 ```
-As interfaces "Endereco" e "CepError" podem ser importadas da mesmoa maneira que o serviço, como no exemplo:
+As interfaces "Endereco" e "CepError" podem ser importadas da mesma maneira que o serviço, como no exemplo:
 ```typescript
 import { ViacepService, Endereco, CepError } from '@brunoc/ngx-viacep';
 ```

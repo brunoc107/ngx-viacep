@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "loadingthe environment"
+bash ~/repo/.circleci/scripts/get-last-tag.sh
+
 echo "cd into the ~/repo/projects/ngx-viacep/ folder"
 cd ~/repo/projects/ngx-viacep/
 

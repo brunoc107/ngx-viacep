@@ -87,7 +87,7 @@ O serviço "NgxViacepService" possui um método para a busca de endereço por CE
 this.viacep.buscarPorCep('01001000').then( ( endereco: Endereco ) => {  
  // Endereço retornado :) console.log(endereco);  
 }).catch( (error: ErroCep) => {  
- // Alguma coisa deu errado :/ console.log(error.descricao);  
+ // Alguma coisa deu errado :/ console.log(error.message);  
 });  
 ```  
 As interfaces "Endereco" e "ErroCep" podem ser importadas da mesma maneira que o serviço, como no exemplo:  
@@ -101,7 +101,7 @@ Para buscar um endereço cujo cep não é conhecido, pode-se utilizar o método 
 this.viacep.buscarPorEndereco('rs', 'porto alegre', 'domingos').then( (enderecos: Endereco[]) => {  
  // Array de endereços possíveis retornados :D console.log(enderecos);  
 }).catch( (error: ErroCep) => {  
- // Ocorreu algum erro :/ console.log(error.descricao);  
+ // Ocorreu algum erro :/ console.log(error.message);  
 });  
 ```  
 

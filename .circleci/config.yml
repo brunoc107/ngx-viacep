@@ -37,7 +37,7 @@ jobs:
     - persist_to_workspace:
         root: ~/repo
         paths:
-        - .
+          - .
 
   lib-deploy:
     <<: *defaults
@@ -50,35 +50,6 @@ jobs:
           source ./.circleci/scripts/get-env.sh
           bash ./.circleci/scripts/deploy-lib.sh
 
-  gh-pages:
-    <<: *defaults
-    steps:
-    - checkout
-
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
-
-    - run: sudo npm install -g @angular/cli
-    - run: sudo npm install -g ngh
-    - run: npm install
-
-    - save_cache:
-        paths:
-        - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-
-    - run:
-        name: Generate Build
-        command: ng build --prod --base-href "https://github.com/brunoc107/ngx-viacep"
-
-    - run:
-        command: |
-          ngh --token $gh_token
-
 workflows:
   version: 2
   ngx-viacep:
@@ -87,22 +58,15 @@ workflows:
         filters:
           branches:
             only:
-            - develop
-            - staging
-            - master
+              - develop
+              - staging
+              - master
     - lib-deploy:
         requires:
-        - build
+          - build
         filters:
           branches:
             only:
-            - develop
-            - staging
-            - master
-  gh-pages:
-    jobs:
-    - gh-pages:
-        filters:
-          branches:
-            only:
-            - develop
+              - develop
+              - staging
+              - master

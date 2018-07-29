@@ -1,6 +1,6 @@
-
-  
 # @bruno/ngx-viacep
+
+[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep)
 
 > A biblioteca está passando por uma refatoração completa para adequar-se ao modelo atual de desenvolvimento do Angular e esta documentação já está atualizada de acordo com esta nova versão. 
 

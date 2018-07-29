@@ -7,20 +7,23 @@ defaults: &defaults
 
 jobs:
   build:
-    <<: *defaults
     steps:
     - checkout
-
     - restore_cache:
         keys:
         - v1-dependencies-
         # fallback to using the latest cache if no exact match is found
         - v1-dependencies-
-
+    - run:
+        name: Install git
+        command: |
+          apt-get install git coreutils
     - run: npm install
     - run:
         name: Sync Version
-        command: bash ./.circleci/scripts/sync-version.sh
+        command: |
+          bash ./.circleci/scripts/get-env.sh
+          bash ./.circleci/scripts/sync-version.sh
     - run:
         name: Build lib
         command: bash ./.circleci/scripts/build-lib.sh
@@ -36,7 +39,6 @@ jobs:
           - .
 
   deploy:
-    <<: *defaults
     steps:
     - attach_workspace:
         at: ~/repo
@@ -50,15 +52,17 @@ workflows:
     jobs:
     - build:
         filters:
-          tags:
-            only: /^[0-9]+.[0-9]+.[0-9]+$/
           branches:
-            ignore: /.*/
+            only:
+              - develop
+              - staging
+              - master
     - deploy:
         requires:
-        - build
+          - build
         filters:
-          tags:
-            only: /^[0-9]+.[0-9]+.[0-9]+$/
           branches:
-            ignore: /.*/
+            only:
+              - develop
+              - staging
+              - master

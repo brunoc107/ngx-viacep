@@ -50,6 +50,8 @@ workflows:
         filters:
           tags:
             only: /^[0-9]+.[0-9]+.[0-9]+$/
+          branches:
+            only: /[rewrite]/
 #    - deploy:
 #        requires:
 #        - test

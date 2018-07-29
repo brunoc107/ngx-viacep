@@ -18,7 +18,7 @@ jobs:
     - run:
         name: Install git
         command: |
-          apt-get install git coreutils
+          sudo apt-get install git coreutils
     - run: npm install
     - run:
         name: Sync Version

@@ -1,0 +1,17 @@
+<div>
+  <h2>Buscar CEP</h2>
+  <div>
+    <input type="text" [(ngModel)]="cep" placeholder="Digite o CEP"/>
+    <button (click)="buscarCep()">Buscar</button>
+    <div>
+      <div *ngIf="error; else json">
+        {{errorMessage}}
+      </div>
+      <ng-template #json>
+        <div *ngIf="endereco">
+          <pre>{{endereco | json}}</pre>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

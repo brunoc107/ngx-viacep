@@ -1,3 +1,4 @@
+
 # @bruno/ngx-viacep
 
 [![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep)
@@ -6,16 +7,16 @@
 
 As alterações feitas nos nomes das classes e símbolos estão na tabela abaixo:
 
-|Nome Antigo|Nome Atual|
-|--|--|
-|ViacepModule|NgxViacepModule|
-|ViacepService|NgxViacepService|
-|ViacepService|NgxViacepService|
-|Endereco|Endereco|
-|CepError|ErroCep|
+|Nome Antigo|Nome Atual|Quebra na interface
+|--|--|--|
+|ViacepModule|NgxViacepModule|Nenhuma|
+|ViacepService|NgxViacepService|Nenhuma|
+|ViacepService|NgxViacepService|Tipos de erro mais específicos para facilitar o tratamento para cada caso.|
+|Endereco|Endereco|Nenhuma|
+|CepError|ErroCep|Não existe mais a propriedade ``descricao``, em seu lugar, deve ser utilizada a propriedade ``message``|
 
 Os nomes foram alterados para padronizar o idioma adotado na interface pública da biblioteca.
-  
+
 ## Introdução  
   
 Este módulo implementa um serviço Angular para pesquisa de endereços e CEPs utilizando a API gratiuta do ViaCep.  

@@ -32,7 +32,8 @@ jobs:
 
     - persist_to_workspace:
         root: ~/repo
-        paths: *
+        paths:
+          - dist/*
 
   deploy:
     <<: *defaults
@@ -45,7 +46,7 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy:
+  lib-deploy:
     jobs:
     - build:
         filters:

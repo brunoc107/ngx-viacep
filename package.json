@@ -23,10 +23,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lib-readme-step": "cp ./README.md ./projects/ngx-viacep/README.md",
-    "lib-license-step": "cp ./LICENSE ./projects/ngx-viacep/LICENSE",
-    "lib-build-step": "ng build --prod ngx-viacep",
-    "lib-build": "npm run lib-readme-step && npm run lib-license-step && npm run lib-build-step"
+    "lib-build": "ng build --prod ngx-viacep"
   },
   "private": true,
   "dependencies": {

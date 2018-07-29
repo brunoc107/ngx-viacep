@@ -1,6 +1,7 @@
-export class ErroCep extends Error{
+export class ErroCep extends Error {
 
-  get descricao(): string {
-    return this.message;
+  constructor( message: string ) {
+
+    super(message);
   }
 }

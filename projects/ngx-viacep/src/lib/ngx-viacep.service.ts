@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Endereco} from './model/endereco';
-import {ErroCep} from './model/erro-cep';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Endereco } from './model/endereco';
+import { ErroCep } from './model/erro-cep';
+import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://viacep.com.br/ws';
 
@@ -28,7 +28,8 @@ export class NgxViacepService {
 
   private static clearCep(cep: string): string {
 
-    return cep.replace('.', '').replace('-', '');
+    const cepStr = `${cep}`;
+    return cepStr.replace('.', '').replace('-', '');
   }
 
   private static stringIsEmpty(data: string): boolean {
@@ -72,7 +73,7 @@ export class NgxViacepService {
       NgxViacepService.validateCep(cleanCep);
 
       this.findByCep(cleanCep).toPromise().then((endereco: Endereco) => {
-        if ( 'cep' in endereco && endereco ) {
+        if ( 'cep' in endereco ) {
           resolve(endereco);
         } else {
           reject(new ErroCep('CEP_NAO_ENCONTRADO'));

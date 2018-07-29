@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
-import {NgxViacepService} from './ngx-viacep.service';
+import { NgxViacepService } from './ngx-viacep.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [],
+  imports: [
+    HttpClientModule
+  ],
   declarations: [],
   exports: [],
   providers: [

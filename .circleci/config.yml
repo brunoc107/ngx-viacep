@@ -38,12 +38,9 @@ jobs:
     - run:
         name: Authenticate with registry
         command: echo "//registry.npmjs.org/:_authToken=$npm_token" > ~/repo/.npmrc
-    - run:
-        name: Setting the version
-        command: npm version $CIRCLE_TAG
-    - run:
-        name: Publish package
-        command: npm publish
+    - run: |
+        cd ~/repo/dist/ngx-viacep/dist/ngx-viacep &&
+        npm publish
 
 workflows:
   version: 2

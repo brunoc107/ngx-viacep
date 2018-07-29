@@ -98,3 +98,10 @@ workflows:
             - develop
             - staging
             - master
+  gh-pages:
+    jobs:
+    - gh-pages:
+        filters:
+          branches:
+            only:
+            - develop

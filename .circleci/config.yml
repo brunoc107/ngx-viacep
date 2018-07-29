@@ -20,7 +20,7 @@ jobs:
     - run: npm install
     - run:
         name: Build lib
-        command: npm run lib-build
+        command: bash ./scripts/build-lib.sh
 
     - save_cache:
         paths:
@@ -30,17 +30,18 @@ jobs:
     - persist_to_workspace:
         root: ~/repo
         paths: .
+
   deploy:
     <<: *defaults
     steps:
     - attach_workspace:
-        at: ~/repo/dist/ngx-viacep/dist/ngx-viacep
+        at: ~/repo
     - run:
         name: Authenticate with registry
-        command: echo "//registry.npmjs.org/:_authToken=$npm_token" > ~/repo/.npmrc
-    - run: |
-        cd ~/repo/dist/ngx-viacep/dist/ngx-viacep &&
-        npm publish
+        command: bash ./scripts/npm-login.sh
+    - run:
+        name: Deploy the lib
+        command: bash ./scripts/deploy the lib.sh
 
 workflows:
   version: 2

@@ -46,7 +46,9 @@ jobs:
         at: ~/repo
     - run:
         name: Deploy the lib
-        command: bash ./.circleci/scripts/deploy-lib.sh
+        command:  |
+          source ./.circleci/scripts/get-env.sh
+          bash ./.circleci/scripts/deploy-lib.sh
 
 workflows:
   version: 2

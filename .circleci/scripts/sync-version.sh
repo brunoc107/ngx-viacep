@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-cd ~/repo/projects/ngx-viacep
+echo "cd into the ~/repo/projects/ngx-viacep/ folder"
+cd ~/repo/projects/ngx-viacep/
 
+echo "setting the package version to $CIRCLE_TAG"
 npm version $CIRLCE_TAG

@@ -33,7 +33,7 @@ jobs:
     - persist_to_workspace:
         root: ~/repo
         paths:
-          - ./*
+          - .
 
   deploy:
     <<: *defaults

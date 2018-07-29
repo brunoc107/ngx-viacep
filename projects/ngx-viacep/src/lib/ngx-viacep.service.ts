@@ -6,6 +6,11 @@ import { Observable } from 'rxjs';
 
 const BASE_URL = 'https://viacep.com.br/ws';
 
+const VALID_UFS: string[] = [
+  'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO',
+  'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR',
+  'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
+
 @Injectable()
 export class NgxViacepService {
 
@@ -46,6 +51,11 @@ export class NgxViacepService {
     return data.trim().length >= minLength;
   }
 
+  private static stringHasMaximumLength(data: string, maxLength: number): boolean {
+
+    return data.trim().length <= maxLength;
+  }
+
   private findByCep(cep: string): Observable<Endereco> {
 
     const url = `${BASE_URL}/${cep}/json`;
@@ -59,6 +69,11 @@ export class NgxViacepService {
 
     return this.http.get<Array<Endereco>>(url);
   }
+
+  private static ufExists(uf: string): boolean {
+
+    return VALID_UFS.indexOf(uf.toLocaleUpperCase()) > 0;
+  };
 
   /**
    * Busca o endereço a partir do CEP
@@ -96,6 +111,18 @@ export class NgxViacepService {
 
       if (NgxViacepService.stringIsEmpty(ufSigla)) {
         throw new ErroCep('ERRO_UF');
+      }
+
+      if (!NgxViacepService.stringHasMinimumLength(ufSigla, 2)) {
+        throw new ErroCep('ERRO_UF_MUITO_CURTA');
+      }
+
+      if (!NgxViacepService.stringHasMaximumLength(ufSigla, 2)) {
+        throw new ErroCep('ERRO_UF_MUITO_LONGA');
+      }
+
+      if (!NgxViacepService.ufExists(ufSigla)) {
+        throw new ErroCep('ERRO_UF_NAO_EXISTE');
       }
 
       if (NgxViacepService.stringIsEmpty(municipio)) {

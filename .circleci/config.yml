@@ -37,9 +37,6 @@ jobs:
     - attach_workspace:
         at: ~/repo
     - run:
-        name: Authenticate with registry
-        command: bash ./.circleci/scripts/npm-login.sh
-    - run:
         name: Deploy the lib
         command: bash ./.circleci/scripts/deploy-lib.sh
 

@@ -16,14 +16,6 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "paths": {
-      "@brunoc/ngx-viacep": [
-        "dist/ngx-viacep"
-      ],
-      "@brunoc/ngx-viacep/*": [
-        "dist/ngx-viacep/*"
-      ]
-    }
+    ]
   }
 }

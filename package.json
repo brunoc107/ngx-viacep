@@ -1,6 +1,21 @@
 {
   "name": "ngx-viacep-app",
-  "version": "0.0.0",
+  "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunoc107/ngx-viacep.git"
+  },
+  "author": {
+    "name": "Bruno Carvalho",
+    "email": "brunocarvalho107@gmail.com"
+  },
+  "keywords": [
+    "angular", "viacep", "buscar cep", "ceps brasil", "endereços brasil", "api cep"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brunoc107/ngx-viacep.git/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +23,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build --prod ngx-viacep"
+    "lib-readme-step": "cp ./README.md ./projects/ngx-viacep/README.md",
+    "lib-license-step": "cp ./LICENSE ./projects/ngx-viacep/LICENSE",
+    "lib-build-step": "ng build --prod ngx-viacep",
+    "lib-build": "npm run lib-readme-step && npm run lib-license-step && npm run lib-build-step"
   },
   "private": true,
   "dependencies": {

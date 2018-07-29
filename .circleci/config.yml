@@ -34,7 +34,7 @@ jobs:
     <<: *defaults
     steps:
     - attach_workspace:
-        at: ~/repo
+        at: ~/repo/dist/ngx-viacep
     - run:
         name: Authenticate with registry
         command: echo "//registry.npmjs.org/:_authToken=$npm_token" > ~/repo/.npmrc

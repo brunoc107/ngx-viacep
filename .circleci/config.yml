@@ -19,6 +19,9 @@ jobs:
 
     - run: npm install
     - run:
+        name: Sync Version
+        command: bash ./.circleci/scripts/sync-version.sh
+    - run:
         name: Build lib
         command: bash ./.circleci/scripts/build-lib.sh
 

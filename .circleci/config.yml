@@ -41,7 +41,7 @@ jobs:
         command: bash ./.circleci/scripts/npm-login.sh
     - run:
         name: Deploy the lib
-        command: bash ./.circleci/scripts/deploy the lib.sh
+        command: bash ./.circleci/scripts/deploy-lib.sh
 
 workflows:
   version: 2

@@ -51,6 +51,7 @@ jobs:
           bash ./.circleci/scripts/deploy-lib.sh
 
   gh-pages:
+    <<: *defaults
     steps:
     - checkout
 

@@ -56,6 +56,52 @@ export class NgxViacepService {
     return data.trim().length <= maxLength;
   }
 
+  private static ufExists(uf: string): boolean {
+
+    return VALID_UFS.indexOf(uf.toLocaleUpperCase()) > 0;
+  }
+
+  private static validateState(province: string): void {
+
+    if (NgxViacepService.stringIsEmpty(province)) {
+      throw new ErroCep('ERRO_UF');
+    }
+
+    if (!NgxViacepService.stringHasMinimumLength(province, 2)) {
+      throw new ErroCep('ERRO_UF_MUITO_CURTA');
+    }
+
+    if (!NgxViacepService.stringHasMaximumLength(province, 2)) {
+      throw new ErroCep('ERRO_UF_MUITO_LONGA');
+    }
+
+    if (!NgxViacepService.ufExists(province)) {
+      throw new ErroCep('ERRO_UF_NAO_EXISTE');
+    }
+  }
+
+  private static validateTown(town: string): void {
+
+    if (NgxViacepService.stringIsEmpty(town)) {
+      throw new ErroCep('ERRO_MUNICIPIO');
+    }
+
+    if (!NgxViacepService.stringHasMinimumLength(town, 3)) {
+      throw new ErroCep('ERRO_MUNICIPIO_MUITO_CURTO');
+    }
+  }
+
+  private static validateStreet(street: string): void {
+
+    if (NgxViacepService.stringIsEmpty(street)) {
+      throw new ErroCep('ERRO_LOGRADOURO');
+    }
+
+    if (!NgxViacepService.stringHasMinimumLength(street, 3)) {
+      throw new ErroCep('ERRO_LOGRADOURO_MUITO_CURTO');
+    }
+  }
+
   private findByCep(cep: string): Observable<Endereco> {
 
     const url = `${BASE_URL}/${cep}/json`;
@@ -63,17 +109,12 @@ export class NgxViacepService {
     return this.http.get<Endereco>(url);
   }
 
-  private searchAddress(province: string, town: string, street: string): Observable<Array<Endereco>> {
+  private searchAddress(state: string, town: string, street: string): Observable<Array<Endereco>> {
 
-    const url = `${BASE_URL}/${province}/${town}/${street}/json`;
+    const url = `${BASE_URL}/${state}/${town}/${street}/json`;
 
     return this.http.get<Array<Endereco>>(url);
   }
-
-  private static ufExists(uf: string): boolean {
-
-    return VALID_UFS.indexOf(uf.toLocaleUpperCase()) > 0;
-  };
 
   /**
    * Busca o endereço a partir do CEP
@@ -109,37 +150,11 @@ export class NgxViacepService {
 
     return new Promise<Array<Endereco>>((resolve, reject) => {
 
-      if (NgxViacepService.stringIsEmpty(ufSigla)) {
-        throw new ErroCep('ERRO_UF');
-      }
+      NgxViacepService.validateState(ufSigla);
 
-      if (!NgxViacepService.stringHasMinimumLength(ufSigla, 2)) {
-        throw new ErroCep('ERRO_UF_MUITO_CURTA');
-      }
+      NgxViacepService.validateTown(municipio);
 
-      if (!NgxViacepService.stringHasMaximumLength(ufSigla, 2)) {
-        throw new ErroCep('ERRO_UF_MUITO_LONGA');
-      }
-
-      if (!NgxViacepService.ufExists(ufSigla)) {
-        throw new ErroCep('ERRO_UF_NAO_EXISTE');
-      }
-
-      if (NgxViacepService.stringIsEmpty(municipio)) {
-        throw new ErroCep('ERRO_MUNICIPIO');
-      }
-
-      if (!NgxViacepService.stringHasMinimumLength(municipio, 3)) {
-        throw new ErroCep('ERRO_MUNICIPIO_MUITO_CURTO');
-      }
-
-      if (NgxViacepService.stringIsEmpty(logradouro)) {
-        throw new ErroCep('ERRO_LOGRADOURO');
-      }
-
-      if (!NgxViacepService.stringHasMinimumLength(logradouro, 3)) {
-        throw new ErroCep('ERRO_LOGRADOURO_MUITO_CURTO');
-      }
+      NgxViacepService.validateStreet(logradouro);
 
       this.searchAddress(ufSigla, municipio, logradouro).toPromise().then((enderecos: Array<Endereco>) => {
         resolve(enderecos);

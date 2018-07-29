@@ -1,0 +1,19 @@
+<div>
+  <h2>Buscar Endereço</h2>
+  <div>
+    <input type="text" [(ngModel)]="uf" placeholder="Digite a UF"/>
+    <input type="text" [(ngModel)]="municipio" placeholder="Digite o Município"/>
+    <input type="text" [(ngModel)]="logradouro" placeholder="Digite a Rua"/>
+    <button (click)="buscarEndereco()">Buscar</button>
+    <div>
+      <div *ngIf="error; else json">
+        {{errorMessage}}
+      </div>
+      <ng-template #json>
+        <div *ngIf="enderecos">
+          <pre>{{enderecos | json}}</pre>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

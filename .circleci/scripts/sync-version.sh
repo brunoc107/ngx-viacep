@@ -3,5 +3,7 @@
 echo "cd into the ~/repo/projects/ngx-viacep/ folder"
 cd ~/repo/projects/ngx-viacep/
 
-echo "setting the package version to $CIRCLE_TAG"
-npm --no-git-tag-version version $CIRLCE_TAG
+last_tag=$CIRCLE_TAG
+
+echo "setting the package version to $last_tag"
+npm --no-git-tag-version version ${last_tag}

@@ -1,6 +1,6 @@
 {
   "name": "@brunoc/ngx-viacep",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/brunoc107/ngx-viacep.git"
@@ -10,7 +10,12 @@
     "email": "brunocarvalho107@gmail.com"
   },
   "keywords": [
-    "angular", "viacep", "buscar cep", "ceps brasil", "endereços brasil", "api cep"
+    "angular",
+    "viacep",
+    "buscar cep",
+    "ceps brasil",
+    "endereços brasil",
+    "api cep"
   ],
   "license": "MIT",
   "bugs": {

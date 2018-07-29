@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-export TAG=$(source $CIRCLE_WORKING_DIRECTORY/.circleci/scripts/get-tag.sh)
-
 echo "cd into the ~/repo/projects/ngx-viacep/ folder"
 cd ~/repo/projects/ngx-viacep/
 

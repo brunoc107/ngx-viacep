@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export TAG=$(source $CIRCLE_WORKING_DIRECTORY/.circleci/scripts/get-last-tag.sh)
+export TAG=$(source ./get-last-tag.sh)
 echo "Last tag: ${TAG}"
 
 export BRANCH=$CIRCLE_BRANCH

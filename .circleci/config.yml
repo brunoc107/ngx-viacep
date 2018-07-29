@@ -30,17 +30,20 @@ jobs:
     - persist_to_workspace:
         root: ~/repo
         paths: .
-#  deploy:
-#    <<: *defaults
-#    steps:
-#    - attach_workspace:
-#        at: ~/repo
-#    - run:
-#        name: Authenticate with registry
-#        command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-#    - run:
-#        name: Publish package
-#        command: npm publish
+  deploy:
+    <<: *defaults
+    steps:
+    - attach_workspace:
+        at: ~/repo
+    - run:
+        name: Authenticate with registry
+        command: echo "//registry.npmjs.org/:_authToken=$npm_token" > ~/repo/.npmrc
+    - run:
+        name: Setting the version
+        command: npm version $CIRCLE_TAG
+    - run:
+        name: Publish package
+        command: npm publish
 
 workflows:
   version: 2
@@ -50,14 +53,12 @@ workflows:
         filters:
           tags:
             only: /^[0-9]+.[0-9]+.[0-9]+$/
+    - deploy:
+        requires:
+        - build
+        filters:
+          tags:
+            only: /^[0-9]+.[0-9]+.[0-9]+$/
           branches:
             only:
-              - rewrite
-#    - deploy:
-#        requires:
-#        - test
-#        filters:
-#          tags:
-#            only: /^[0-9]+.[0-9]+.[0-9]+$/
-#          branches:
-#            ignore: /.*/
+              - master

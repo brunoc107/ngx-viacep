@@ -10,7 +10,12 @@
     "email": "brunocarvalho107@gmail.com"
   },
   "keywords": [
-    "angular", "viacep", "buscar cep", "ceps brasil", "endereços brasil", "api cep"
+    "angular",
+    "viacep",
+    "buscar cep",
+    "ceps brasil",
+    "endereços brasil",
+    "api cep"
   ],
   "license": "MIT",
   "bugs": {
@@ -23,7 +28,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lib-build": "ng build --prod ngx-viacep"
+    "lib-build": "ng build --prod ngx-viacep",
+    "exec": "npm run lib-build && ng serve"
   },
   "private": true,
   "dependencies": {

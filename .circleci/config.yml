@@ -6,7 +6,7 @@ defaults: &defaults
   - image: circleci/node:8.9.1
 
 jobs:
-  build:
+  lib-build:
     <<: *defaults
     steps:
     - checkout
@@ -39,7 +39,7 @@ jobs:
         paths:
           - .
 
-  deploy:
+  lib-deploy:
     <<: *defaults
     steps:
     - attach_workspace:
@@ -52,16 +52,16 @@ jobs:
 
 workflows:
   version: 2
-  lib-deploy:
+  ngx-viacep:
     jobs:
-    - build:
+    - lib-build:
         filters:
           branches:
             only:
               - develop
               - staging
               - master
-    - deploy:
+    - lib-deploy:
         requires:
           - build
         filters:

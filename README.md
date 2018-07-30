@@ -1,8 +1,8 @@
-
 # @bruno/ngx-viacep
 
 [![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep)
 
+## Atenção
 > A biblioteca está passando por uma refatoração completa para adequar-se ao modelo atual de desenvolvimento do Angular e esta documentação já está atualizada de acordo com esta nova versão. 
 
 As alterações feitas nos nomes das classes e símbolos estão na tabela abaixo:
@@ -16,6 +16,12 @@ As alterações feitas nos nomes das classes e símbolos estão na tabela abaixo
 |CepError|ErroCep|Não existe mais a propriedade ``descricao``, em seu lugar, deve ser utilizada a propriedade ``message``|
 
 Os nomes foram alterados para padronizar o idioma adotado na interface pública da biblioteca.
+
+Para utilizar a versão antiga, instale a biblioteca especificando a versão 0.1.6, como mostrado abaixo. Entretanto, lembre-se que esta versão encontra-se obsoleta e não será mais mantida.
+
+```bash
+npm install @brunoc/ngx-viacep@0.1.6 --save
+```
 
 ## Introdução  
   

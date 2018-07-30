@@ -20,7 +20,7 @@ Os nomes foram alterados para padronizar o idioma adotado na interface pública 
 Para utilizar a versão antiga, instale a biblioteca especificando a versão 0.1.6, como mostrado abaixo. Entretanto, lembre-se que esta versão encontra-se obsoleta e não será mais mantida.
 
 ```bash
-npm install @brunoc/ngx-viacep@0.1.6
+npm install @brunoc/ngx-viacep@0.1.6 --save
 ```
 
 ## Introdução  

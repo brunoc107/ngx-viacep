@@ -51,9 +51,11 @@ jobs:
           bash ./.circleci/scripts/deploy-lib.sh
 
 workflows:
+
   version: 2
   ngx-viacep:
     jobs:
+
     - lib-build:
         filters:
           branches:
@@ -61,6 +63,7 @@ workflows:
               - develop
               - staging
               - master
+
     - lib-deploy:
         requires:
           - lib-build

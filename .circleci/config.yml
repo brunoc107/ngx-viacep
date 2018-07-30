@@ -63,7 +63,7 @@ workflows:
               - master
     - lib-deploy:
         requires:
-          - build
+          - lib-build
         filters:
           branches:
             only:

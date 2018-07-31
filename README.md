@@ -1,6 +1,10 @@
+
 # @bruno/ngx-viacep
 
-[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep)
+|Serviço|Master|Staging|Develop|
+|--|--|--|--|
+|CircleCI|[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/master.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/master)|[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/staging.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/staging)|[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/develop.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/develop)|
+
 
 ## Atenção
 > A biblioteca está passando por uma refatoração completa para adequar-se ao modelo atual de desenvolvimento do Angular e esta documentação já está atualizada de acordo com esta nova versão. 

@@ -1,36 +1,13 @@
 
-# @bruno/ngx-viacep
+
+# Ngx-Viacep!
+
+Uma biblioteca Angular para busca de CEP e endereços pelo serviço [ViaCep](https://viacep.com.br/). Utiliza o Módulo HttpClientModule, portanto, é recomendado seu uso a partir da verão 4.3 do Angular.
 
 |Serviço|Master|Staging|Develop|
 |--|--|--|--|
 |CircleCI|[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/master.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/master)|[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/staging.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/staging)|[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/develop.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/develop)|
 
-
-## Atenção
-> A biblioteca está passando por uma refatoração completa para adequar-se ao modelo atual de desenvolvimento do Angular e esta documentação já está atualizada de acordo com esta nova versão. 
-
-As alterações feitas nos nomes das classes e símbolos estão na tabela abaixo:
-
-|Nome Antigo|Nome Atual|Quebra na interface
-|--|--|--|
-|ViacepModule|NgxViacepModule|Nenhuma|
-|ViacepService|NgxViacepService|Nenhuma|
-|ViacepService|NgxViacepService|Tipos de erro mais específicos para facilitar o tratamento para cada caso.|
-|Endereco|Endereco|Nenhuma|
-|CepError|ErroCep|Não existe mais a propriedade ``descricao``, em seu lugar, deve ser utilizada a propriedade ``message``|
-
-Os nomes foram alterados para padronizar o idioma adotado na interface pública da biblioteca.
-
-Para utilizar a versão antiga, instale a biblioteca especificando a versão 0.1.6, como mostrado abaixo. Entretanto, lembre-se que esta versão encontra-se obsoleta e não será mais mantida.
-
-```bash
-npm install @brunoc/ngx-viacep@0.1.6 --save
-```
-
-## Introdução  
-  
-Este módulo implementa um serviço Angular para pesquisa de endereços e CEPs utilizando a API gratiuta do ViaCep.  
-  
 ## Instalação  
   
 Via npm:  

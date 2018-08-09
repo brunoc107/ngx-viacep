@@ -58,7 +58,7 @@ export class NgxViacepService {
 
   private static ufExists(uf: string): boolean {
 
-    return VALID_UFS.indexOf(uf.toLocaleUpperCase()) > 0;
+    return VALID_UFS.indexOf(uf.toLocaleUpperCase()) > -1;
   }
 
   private static validateState(province: string): void {

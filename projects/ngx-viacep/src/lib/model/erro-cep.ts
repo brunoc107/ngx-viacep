@@ -5,12 +5,14 @@ export class ErroCep extends Error {
   constructor( private errorCode: ErrorValues ) {
 
     super(ErrorValues[errorCode]);
+
+    Object.setPrototypeOf(this, ErroCep.prototype);
   }
 
   /**
    * Returns the Error code
    */
-  getCode(): ErrorValues {
+  public getCode(): ErrorValues {
     return this.errorCode;
   }
 
@@ -18,7 +20,7 @@ export class ErroCep extends Error {
    * Compares the thrown error type with an ErrorValues enum item
    * @param type
    */
-  ofType(type: ErrorValues): boolean {
+  public ofType(type: ErrorValues): boolean {
     return this.getCode() === type;
   }
 }

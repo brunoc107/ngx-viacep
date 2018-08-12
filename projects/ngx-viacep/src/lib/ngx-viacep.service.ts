@@ -15,8 +15,7 @@ const VALID_UFS: string[] = [
 @Injectable()
 export class NgxViacepService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   private static throwCepError(error: ErrorValues) {
     throw new ErroCep(error);
@@ -127,7 +126,7 @@ export class NgxViacepService {
    */
   buscarPorCep(cep: string): Promise<Endereco> {
 
-    return new Promise<Endereco>((resolve) => {
+    return new Promise<Endereco>((resolve, reject) => {
 
       const cleanCep = NgxViacepService.clearCep(cep);
 
@@ -137,10 +136,10 @@ export class NgxViacepService {
         if ( 'cep' in endereco ) {
           resolve(endereco);
         } else {
-          NgxViacepService.throwCepError(ErrorValues.CEP_NAO_ENCONTRADO);
+          reject(new ErroCep(ErrorValues.CEP_NAO_ENCONTRADO));
         }
       }).catch(() => {
-        NgxViacepService.throwCepError(ErrorValues.ERRO_SERVIDOR);
+        reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
       });
     });
   }
@@ -153,7 +152,7 @@ export class NgxViacepService {
    */
   buscarPorEndereco(ufSigla: string, municipio: string, logradouro: string): Promise<Array<Endereco>> {
 
-    return new Promise<Array<Endereco>>((resolve) => {
+    return new Promise<Array<Endereco>>((resolve, reject) => {
 
       NgxViacepService.validateState(ufSigla);
 
@@ -164,7 +163,7 @@ export class NgxViacepService {
       this.searchAddress(ufSigla, municipio, logradouro).toPromise().then((enderecos: Array<Endereco>) => {
         resolve(enderecos);
       }).catch(() => {
-        NgxViacepService.throwCepError(ErrorValues.ERRO_SERVIDOR);
+        reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
       });
     });
   }

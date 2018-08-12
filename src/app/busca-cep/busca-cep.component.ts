@@ -36,7 +36,7 @@ export class BuscaCepComponent implements OnInit {
           this.errorMessage = 'Por favor, informe o CEP :)';
           break;
         case ErrorValues.CEP_INVALIDO:
-          this.errorMessage = `O CEP ${this.cep} não é válido :/`;
+          this.errorMessage = `O CEP "${this.cep}" não é válido :/`;
           break;
         case ErrorValues.CEP_MUITO_CURTO:
           this.errorMessage = 'O CEP informado é curto demais :P';
@@ -45,7 +45,7 @@ export class BuscaCepComponent implements OnInit {
           this.errorMessage = 'O CEP informado é longo demais ¬¬';
           break;
         case ErrorValues.CEP_NAO_ENCONTRADO:
-          this.errorMessage = `O CEP ${this.cep} não existe :(`;
+          this.errorMessage = `O CEP "${this.cep}" não existe :(`;
           break;
         default:
           this.errorMessage = 'Erro ao buscar o CEP :O';

@@ -1,11 +1,35 @@
-<div>
-  <h1>@brunoc/ngx-viacep</h1>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" routerLink="">NgxViacep!</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div>
-    <a routerLink="busca-cep">Buscar CEP</a>
-    &middot;
-    <a routerLink="busca-endereco">Buscar Endereço</a>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" routerLink="">Início</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" routerLink="busca-cep">Buscar CEP</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" routerLink="busca-endereco">Buscar Endereço</a>
+      </li>
+    </ul>
   </div>
 
+  <a
+    href="https://github.com/brunoc107/ngx-viacep"
+    target="_blank"
+  >
+    <img
+      style="position: absolute; top: 0; right: 0; border: 0;"
+      src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"
+    >
+  </a>
+</nav>
+
+<main role="main" class="container upper-gutter">
+
   <router-outlet></router-outlet>
-</div>
+</main>

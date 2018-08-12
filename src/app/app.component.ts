@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {NgxViacepService, Endereco, ErroCep} from '@brunoc/ngx-viacep';
 
 @Component({
   selector: 'app-root',

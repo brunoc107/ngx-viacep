@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgxViacepModule } from '@brunoc/ngx-viacep';
 
 @NgModule({
   declarations: [
@@ -11,8 +10,7 @@ import { NgxViacepModule } from '@brunoc/ngx-viacep';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgxViacepModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

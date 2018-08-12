@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import {NgxViacepModule} from '@brunoc/ngx-viacep';
+import { SharedModule } from '../shared/shared.module';
 
 import { BuscaCepComponent } from './busca-cep.component';
 import { BuscaCepRoutingModule } from './busca-cep-routing.module';
@@ -11,7 +11,7 @@ import { BuscaCepRoutingModule } from './busca-cep-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    NgxViacepModule,
+    SharedModule,
     BuscaCepRoutingModule
   ],
   declarations: [BuscaCepComponent]

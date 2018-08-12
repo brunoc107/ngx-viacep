@@ -33,7 +33,7 @@
     "exec": "npm run lib-build && ng serve",
     "page-build": "ng build --prod --base-href \"https://brunoc107.github.io/ngx-viacep/\"",
     "page-deploy": "ngh --dir dist/ngx-viacep-app",
-    "github-page": "npm run page-build && npm run page-deploy"
+    "github-page": "npm run lib-build && npm run page-build && npm run page-deploy"
   },
   "private": true,
   "dependencies": {

@@ -28,9 +28,8 @@ export class BuscaCepComponent implements OnInit {
     this.viacep.buscarPorCep(this.cep).then((endereco: Endereco) => {
       this.endereco = endereco;
     }).catch((erro: ErroCep) => {
+
       this.error = true;
-      console.log(erro.message);
-      console.log(erro.ofType(ErrorValues.CEP_INVALIDO));
 
       switch (erro.getCode()) {
         case ErrorValues.CEP_VAZIO:

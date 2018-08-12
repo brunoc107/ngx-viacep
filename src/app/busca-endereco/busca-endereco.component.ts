@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Endereco, ErroCep, NgxViacepService} from '@brunoc/ngx-viacep';
-import {ErrorValues} from '../../../projects/ngx-viacep/src/lib/model/error-values.enum';
+import {Endereco, ErroCep, NgxViacepService, ErrorValues} from '@brunoc/ngx-viacep';
 
 @Component({
   selector: 'app-busca-endereco',
@@ -45,7 +44,7 @@ export class BuscaEnderecoComponent implements OnInit {
           this.errorMessage = 'A UF informada é longa demais :P';
           break;
         case ErrorValues.UF_NAO_EXISTE:
-          this.errorMessage = `Qual estado tem a sigla ${this.uf}??`;
+          this.errorMessage = `Qual estado tem a sigla "${this.uf}"??`;
           break;
 
         case ErrorValues.MUNICIPIO_VAZIO:

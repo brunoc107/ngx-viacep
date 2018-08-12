@@ -1,19 +1,35 @@
-<div>
+<div class="container">
+
   <h2>Buscar Endereço</h2>
-  <div>
-    <input type="text" [(ngModel)]="uf" placeholder="Digite a UF"/>
-    <input type="text" [(ngModel)]="municipio" placeholder="Digite o Município"/>
-    <input type="text" [(ngModel)]="logradouro" placeholder="Digite a Rua"/>
-    <button (click)="buscarEndereco()">Buscar</button>
-    <div>
-      <div *ngIf="error; else json">
-        {{errorMessage}}
-      </div>
-      <ng-template #json>
-        <div *ngIf="enderecos">
-          <pre>{{enderecos | json}}</pre>
-        </div>
-      </ng-template>
+
+  <p>
+    Não sabe o CEP? Tente o formulário abaixo ;)
+  </p>
+
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <input type="text" class="form-control full-width" [(ngModel)]="uf" placeholder="Digite a UF"/>
     </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <input type="text" class="form-control full-width" [(ngModel)]="municipio" placeholder="Digite o Município"/>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <input type="text" class="form-control full-width" [(ngModel)]="logradouro" placeholder="Digite a Rua"/>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <button class="btn btn-primary full-width" (click)="buscarEndereco()">Buscar</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="alert alert-danger" role="alert" *ngIf="error; else addr">
+      {{errorMessage}}
+    </div>
+    <ng-template #addr>
+      <app-address-list
+        *ngIf="enderecos"
+        [enderecos]="enderecos"
+      ></app-address-list>
+    </ng-template>
   </div>
 </div>

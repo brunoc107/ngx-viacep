@@ -1,17 +1,45 @@
-<div>
+<div class="container">
+
   <h2>Buscar CEP</h2>
-  <div>
-    <input type="text" [(ngModel)]="cep" placeholder="Digite o CEP"/>
-    <button (click)="buscarCep()">Buscar</button>
-    <div>
-      <div *ngIf="error; else json">
-        {{errorMessage}}
-      </div>
-      <ng-template #json>
-        <div *ngIf="endereco">
-          <pre>{{endereco | json}}</pre>
+
+  <p>
+    Utilize o formulário abaixo para buscar um CEP :)
+  </p>
+
+  <div class="row">
+    <div
+      class="col-sm-12 col-md-5 col-lg-4 col-xl-3"
+    >
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o CEP"
+          aria-label="CEP a ser buscado"
+          aria-describedby="button-addon2"
+          [(ngModel)]="cep"
+        >
+        <div class="input-group-append">
+          <button (click)="buscarCep()" class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
         </div>
-      </ng-template>
+      </div>
+
+    </div>
+    <div
+      class="col-sm-12 col-md-7 col-lg-8 col-xl-9"
+    >
+      <div>
+        <div class="alert alert-danger" role="alert" *ngIf="error; else addr">
+          {{errorMessage}}
+        </div>
+        <ng-template #addr>
+            <app-address-card
+              *ngIf="endereco"
+              [endereco]="endereco"
+            ></app-address-card>
+        </ng-template>
+      </div>
+
     </div>
   </div>
 </div>

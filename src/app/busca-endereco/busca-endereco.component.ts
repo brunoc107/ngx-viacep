@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {NgxViacepService, Endereco, ErroCep} from '@brunoc/ngx-viacep';
+import {Endereco, ErroCep, NgxViacepService} from '@brunoc/ngx-viacep';
+import {ErrorValues} from '../../../projects/ngx-viacep/src/lib/model/error-values.enum';
 
 @Component({
   selector: 'app-busca-endereco',
@@ -32,6 +33,38 @@ export class BuscaEnderecoComponent implements OnInit {
     }).catch((erro: ErroCep) => {
       this.error = true;
       this.errorMessage = erro.message;
+
+      switch (erro.getCode()) {
+        case ErrorValues.UF_VAZIA:
+          this.errorMessage = 'Por favor, informe a UF :)';
+          break;
+        case ErrorValues.UF_MUITO_CURTA:
+          this.errorMessage = 'A UF informada é muito curta :/';
+          break;
+        case ErrorValues.UF_MUITO_LONGA:
+          this.errorMessage = 'A UF informada é longa demais :P';
+          break;
+        case ErrorValues.UF_NAO_EXISTE:
+          this.errorMessage = `Qual estado tem a sigla ${this.uf}??`;
+          break;
+
+        case ErrorValues.MUNICIPIO_VAZIO:
+          this.errorMessage = 'Por favor, informe o município :)';
+          break;
+        case ErrorValues.MUNICIPIO_MUITO_CURTO:
+          this.errorMessage = 'Por favor, digite pelo menos três letras do município :3';
+          break;
+
+        case ErrorValues.LOGRADOURO_VAZIO:
+          this.errorMessage = 'Por favor, informe o logradouro :)';
+          break;
+        case ErrorValues.LOGRADOURO_MUITO_CURTO:
+          this.errorMessage = 'Por favor, digite pelo menos três letras do logradouro :3';
+          break;
+
+        default:
+          this.errorMessage = 'Erro ao buscar os endereços :O';
+      }
     });
   }
 }

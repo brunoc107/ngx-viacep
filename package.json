@@ -29,7 +29,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lib-build": "ng build --prod ngx-viacep",
-    "exec": "npm run lib-build && ng serve"
+    "exec": "rm -rf ./dist && npm run lib-build && ng serve"
   },
   "private": true,
   "dependencies": {

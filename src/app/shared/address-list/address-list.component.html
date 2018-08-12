@@ -1,0 +1,7 @@
+<div>
+  <div>Endereços encontrados: {{enderecos.length}}</div>
+  <app-address-card
+    *ngFor="let endereco of enderecos"
+    [endereco]="endereco"
+  ></app-address-card>
+</div>

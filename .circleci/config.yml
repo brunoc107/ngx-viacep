@@ -93,8 +93,6 @@ workflows:
               - master
 
     - github-page:
-        requires:
-          -lib-deploy
         filters:
           branches:
             only:

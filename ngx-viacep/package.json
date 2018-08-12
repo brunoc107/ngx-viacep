@@ -1,0 +1,41 @@
+{
+  "name": "@brunoc/ngx-viacep",
+  "version": "0.2.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunoc107/ngx-viacep.git"
+  },
+  "author": {
+    "name": "Bruno Carvalho",
+    "email": "brunocarvalho107@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "viacep",
+    "buscar cep",
+    "ceps brasil",
+    "endereços brasil",
+    "api cep"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brunoc107/ngx-viacep.git/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "main": "bundles/brunoc-ngx-viacep.umd.js",
+  "module": "fesm5/brunoc-ngx-viacep.js",
+  "es2015": "fesm2015/brunoc-ngx-viacep.js",
+  "esm5": "esm5/brunoc-ngx-viacep.js",
+  "esm2015": "esm2015/brunoc-ngx-viacep.js",
+  "fesm5": "fesm5/brunoc-ngx-viacep.js",
+  "fesm2015": "fesm2015/brunoc-ngx-viacep.js",
+  "typings": "brunoc-ngx-viacep.d.ts",
+  "metadata": "brunoc-ngx-viacep.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

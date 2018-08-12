@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import { NgxViacepModule } from '@brunoc/ngx-viacep';
+import {SharedModule } from '../shared/shared.module';
 
 import { BuscaEnderecoComponent } from './busca-endereco.component';
 import { BuscaEnderecoRoutingModule } from './busca-endereco-routing.module';
@@ -12,7 +12,7 @@ import { BuscaEnderecoRoutingModule } from './busca-endereco-routing.module';
     CommonModule,
     FormsModule,
     BuscaEnderecoRoutingModule,
-    NgxViacepModule
+    SharedModule
   ],
   declarations: [BuscaEnderecoComponent]
 })

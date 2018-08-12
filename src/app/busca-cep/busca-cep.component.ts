@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { NgxViacepService, Endereco, ErroCep } from '@brunoc/ngx-viacep';
+import {Endereco, ErroCep, ErrorValues, NgxViacepService} from '@brunoc/ngx-viacep';
 
 @Component({
   selector: 'app-busca-cep',
@@ -28,8 +28,28 @@ export class BuscaCepComponent implements OnInit {
     this.viacep.buscarPorCep(this.cep).then((endereco: Endereco) => {
       this.endereco = endereco;
     }).catch((erro: ErroCep) => {
+
       this.error = true;
-      this.errorMessage = erro.message;
+
+      switch (erro.getCode()) {
+        case ErrorValues.CEP_VAZIO:
+          this.errorMessage = 'Por favor, informe o CEP :)';
+          break;
+        case ErrorValues.CEP_INVALIDO:
+          this.errorMessage = `O CEP "${this.cep}" não é válido :/`;
+          break;
+        case ErrorValues.CEP_MUITO_CURTO:
+          this.errorMessage = 'O CEP informado é curto demais :P';
+          break;
+        case ErrorValues.CEP_MUITO_LONGO:
+          this.errorMessage = 'O CEP informado é longo demais ¬¬';
+          break;
+        case ErrorValues.CEP_NAO_ENCONTRADO:
+          this.errorMessage = `O CEP "${this.cep}" não existe :(`;
+          break;
+        default:
+          this.errorMessage = 'Erro ao buscar o CEP :O';
+      }
     });
   }
 }

@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Endereco } from './model/endereco';
-import { ErroCep } from './model/erro-cep';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Endereco} from './model/endereco';
+import {ErroCep} from './model/erro-cep';
+import {Observable} from 'rxjs';
+import {ErrorValues} from './model/error-values.enum';
 
 const BASE_URL = 'https://viacep.com.br/ws';
 
@@ -14,20 +15,23 @@ const VALID_UFS: string[] = [
 @Injectable()
 export class NgxViacepService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
+
+  private static throwCepError(error: ErrorValues) {
+    throw new ErroCep(error);
   }
 
   private static validateCep(cep: string): void {
 
     const regex = new RegExp(/^[0-9]+$/);
     if (NgxViacepService.stringIsEmpty(cep)) {
-      throw new ErroCep('CEP_VAZIO');
+      NgxViacepService.throwCepError(ErrorValues.CEP_VAZIO);
     } else if (!regex.test(cep)) {
-      throw new ErroCep('CEP_INVALIDO');
+      NgxViacepService.throwCepError(ErrorValues.CEP_INVALIDO);
     } else if (cep.length < 8) {
-      throw new ErroCep('CEP_MUITO_CURTO');
+      NgxViacepService.throwCepError(ErrorValues.CEP_MUITO_CURTO);
     } else if (cep.length > 8) {
-      throw new ErroCep('CEP_MUITO_LONGO');
+      NgxViacepService.throwCepError(ErrorValues.CEP_MUITO_LONGO);
     }
   }
 
@@ -64,41 +68,41 @@ export class NgxViacepService {
   private static validateState(province: string): void {
 
     if (NgxViacepService.stringIsEmpty(province)) {
-      throw new ErroCep('ERRO_UF');
+      NgxViacepService.throwCepError(ErrorValues.UF_VAZIA);
     }
 
     if (!NgxViacepService.stringHasMinimumLength(province, 2)) {
-      throw new ErroCep('ERRO_UF_MUITO_CURTA');
+      NgxViacepService.throwCepError(ErrorValues.UF_MUITO_CURTA);
     }
 
     if (!NgxViacepService.stringHasMaximumLength(province, 2)) {
-      throw new ErroCep('ERRO_UF_MUITO_LONGA');
+      NgxViacepService.throwCepError(ErrorValues.UF_MUITO_LONGA);
     }
 
     if (!NgxViacepService.ufExists(province)) {
-      throw new ErroCep('ERRO_UF_NAO_EXISTE');
+      NgxViacepService.throwCepError(ErrorValues.UF_NAO_EXISTE);
     }
   }
 
   private static validateTown(town: string): void {
 
     if (NgxViacepService.stringIsEmpty(town)) {
-      throw new ErroCep('ERRO_MUNICIPIO');
+      NgxViacepService.throwCepError(ErrorValues.MUNICIPIO_VAZIO);
     }
 
     if (!NgxViacepService.stringHasMinimumLength(town, 3)) {
-      throw new ErroCep('ERRO_MUNICIPIO_MUITO_CURTO');
+      NgxViacepService.throwCepError(ErrorValues.MUNICIPIO_MUITO_CURTO);
     }
   }
 
   private static validateStreet(street: string): void {
 
     if (NgxViacepService.stringIsEmpty(street)) {
-      throw new ErroCep('ERRO_LOGRADOURO');
+      NgxViacepService.throwCepError(ErrorValues.LOGRADOURO_VAZIO);
     }
 
     if (!NgxViacepService.stringHasMinimumLength(street, 3)) {
-      throw new ErroCep('ERRO_LOGRADOURO_MUITO_CURTO');
+      NgxViacepService.throwCepError(ErrorValues.LOGRADOURO_MUITO_CURTO);
     }
   }
 
@@ -132,10 +136,10 @@ export class NgxViacepService {
         if ( 'cep' in endereco ) {
           resolve(endereco);
         } else {
-          reject(new ErroCep('CEP_NAO_ENCONTRADO'));
+          reject(new ErroCep(ErrorValues.CEP_NAO_ENCONTRADO));
         }
-      }).catch((error) => {
-        reject(new ErroCep('ERRO_SERVIDOR'));
+      }).catch(() => {
+        reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
       });
     });
   }
@@ -158,8 +162,8 @@ export class NgxViacepService {
 
       this.searchAddress(ufSigla, municipio, logradouro).toPromise().then((enderecos: Array<Endereco>) => {
         resolve(enderecos);
-      }).catch((error) => {
-        reject(new ErroCep('ERRO_SERVIDOR'));
+      }).catch(() => {
+        reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
       });
     });
   }

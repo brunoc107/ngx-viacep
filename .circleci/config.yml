@@ -96,4 +96,4 @@ workflows:
         filters:
           branches:
             only:
-              - pages
+              - master

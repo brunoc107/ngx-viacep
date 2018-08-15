@@ -50,24 +50,6 @@ jobs:
           source ./.circleci/scripts/get-env.sh
           bash ./.circleci/scripts/deploy-lib.sh
 
-  github-page:
-    <<: *defaults
-    steps:
-    - checkout
-    - restore_cache:
-        keys:
-        - v1-dependencies-
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
-    - run:
-        name: Install git
-        command: |
-          sudo apt-get install git coreutils
-    - run: npm install
-    - run:
-        name: Build github-page
-        command: npm run github-page
-
 workflows:
 
   version: 2
@@ -90,10 +72,4 @@ workflows:
             only:
               - develop
               - staging
-              - master
-
-    - github-page:
-        filters:
-          branches:
-            only:
               - master

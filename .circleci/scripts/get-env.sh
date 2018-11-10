@@ -7,9 +7,6 @@ export BRANCH=$CIRCLE_BRANCH
 echo "Current branch: ${BRANCH}"
 
 if [[ ${CIRCLE_BRANCH} == "develop" ]]; then
-    export FULL_TAG="${TAG}-alpha";
-    export NEXT="--tag alpha"
-elif [[ ${CIRCLE_BRANCH} == "staging" ]]; then
     export FULL_TAG="${TAG}-beta";
     export NEXT="--tag beta"
 elif [[ ${CIRCLE_BRANCH} == "master" ]]; then

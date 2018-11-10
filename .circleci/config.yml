@@ -61,7 +61,6 @@ workflows:
           branches:
             only:
               - develop
-              - staging
               - master
 
     - lib-deploy:
@@ -71,5 +70,4 @@ workflows:
           branches:
             only:
               - develop
-              - staging
               - master

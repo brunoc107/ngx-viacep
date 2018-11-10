@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+#.angulardoc.json
+.angulardoc.json
+
 # compiled output
 /dist
 /tmp

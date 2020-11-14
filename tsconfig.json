@@ -5,25 +5,26 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
     ],
     "paths": {
       "@brunoc/ngx-viacep": [
+        "dist/ngx-viacep/ngx-viacep",
         "dist/ngx-viacep"
-      ],
-      "@brunoc/ngx-viacep/*": [
-        "dist/ngx-viacep/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": false
   }
 }

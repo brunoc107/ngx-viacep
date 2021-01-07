@@ -4,12 +4,23 @@ on:
     branches:
       - master # Change this to your default branch
 jobs:
-  npm-publish:
-    name: npm-publish
+  build:
+    name: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: Builds the library
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        registry-url: 'https://registry.npmjs.org'
+    - run: npm install
+    - run: npm run build:lib:prod
+    - run: cp ./projects/ngx-viacep/package.json ./dist/ngx-viacep/package.json
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@1.3.6
       with: # All of theses inputs are optional
@@ -17,7 +28,7 @@ jobs:
         tag_message: "v%s"
         create_tag: "true"
         commit_pattern: "^Release (\\S+)"
-        workspace: "."
+        workspace: ".dist/ngx-viacep/"
         publish_command: "npm"
         publish_args: "--prod --non-interactive"
       env: # More info about the environment variables in the README

@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Endereco} from './model/endereco';
-import {ErroCep} from './model/erro-cep';
-import {Observable} from 'rxjs';
-import {ErrorValues} from './model/error-values.enum';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Endereco } from './model/endereco';
+import { ErroCep } from './model/erro-cep';
+import { Observable } from 'rxjs';
+import { ErrorValues } from './model/error-values.enum';
 
 const BASE_URL = 'https://viacep.com.br/ws';
 
@@ -12,10 +12,12 @@ const VALID_UFS: string[] = [
   'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR',
   'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class NgxViacepService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private static throwCepError(error: ErrorValues) {
     throw new ErroCep(error);
@@ -133,7 +135,7 @@ export class NgxViacepService {
       NgxViacepService.validateCep(cleanCep);
 
       this.findByCep(cleanCep).toPromise().then((endereco: Endereco) => {
-        if ( 'cep' in endereco ) {
+        if ('cep' in endereco) {
           resolve(endereco);
         } else {
           reject(new ErroCep(ErrorValues.CEP_NAO_ENCONTRADO));

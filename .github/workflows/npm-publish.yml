@@ -29,7 +29,7 @@ jobs:
         commit_pattern: "^Release (\\S+)"
         workspace: ".dist/ngx-viacep/"
         publish_command: "npm"
-        publish_args: "--prod --non-interactive"
+        publish_args: ""
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings

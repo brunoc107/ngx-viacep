@@ -23,5 +23,5 @@ jobs:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
     - run: npm install
     - run: npm run build:lib:prod
-    - run: bash .github/workflows/scripts/copy-files.sh
-    - run: bash .github/workflows/scripts/publish.sh
+    - run: ./.github/workflows/scripts/copy-files.sh
+    - run: ./.github/workflows/scripts/publish.sh

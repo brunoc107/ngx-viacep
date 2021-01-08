@@ -21,10 +21,12 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
     - run: npm run build:lib:prod
-    - run: ./.github/workflows/scripts/copy-files.sh
 
-    - name: Publish the package
-      run: ./.github/workflows/scripts/publish.sh
+    - name: Copying files
+      run: ./.github/workflows/scripts/copy-files.sh
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+
+    - name: Publish the package
+      run: ./.github/workflows/scripts/publish.sh

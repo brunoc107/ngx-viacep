@@ -20,16 +20,8 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
     - run: npm run build:lib:prod
-    - run: cp ./projects/ngx-viacep/package.json ./dist/ngx-viacep/package.json
-    - name: Publish if version has been updated
-      uses: pascalgn/npm-publish-action@1.3.6
-      with: # All of theses inputs are optional
-        tag_name: "v%s"
-        tag_message: "v%s"
-        commit_pattern: "^Release (\\S+)"
-        workspace: ".dist/ngx-viacep/"
-        publish_command: "npm publish --verbose"
-        publish_args: ""
+    - run: bash .github/workflows/scripts/copy-files.sh
+    - run: bash .github/workflows/scripts/publish.sh
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings

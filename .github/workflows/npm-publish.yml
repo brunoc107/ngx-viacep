@@ -28,7 +28,7 @@ jobs:
         tag_message: "v%s"
         commit_pattern: "^Release (\\S+)"
         workspace: ".dist/ngx-viacep/"
-        publish_command: "npm"
+        publish_command: "npm publish --verbose"
         publish_args: ""
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated

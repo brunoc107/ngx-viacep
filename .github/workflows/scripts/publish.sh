@@ -10,7 +10,7 @@ echo "Copying the license"
 cp ./LICENSE ./dist/ngx-viacep/
 
 echo "Retrieving credentials"
-if [ -z "$NPM_AUTH_TOKEN" ]; then
+if [ -z "$NODE_AUTH_TOKEN" ]; then
     echo "EMPTY_TOKEN_ERROR"
     exit 1
 fi

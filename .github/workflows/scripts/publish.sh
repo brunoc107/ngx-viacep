@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Updating the version"
+node sync-version.js
+
 echo "Copying the lib package.json"
 cp projects/ngx-viacep/package.json ./dist/ngx-viacep/
 
@@ -16,5 +19,5 @@ if [ -z "$NODE_AUTH_TOKEN" ]; then
 fi
 
 echo "Publishing the package"
-cd ./dist/ngx-viacep/
-npm publish 
+cd ./dist/ngx-viacep/ || exit 1
+npm publish

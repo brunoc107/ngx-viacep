@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Updating the version"
-node sync-version.js
+node ./sync-version.js
 
 echo "Copying the lib package.json"
 cp projects/ngx-viacep/package.json ./dist/ngx-viacep/

@@ -2,7 +2,7 @@
 
 Uma biblioteca Angular para busca de CEP e endereços pelo serviço [ViaCep](https://viacep.com.br/). Utiliza o Módulo HttpClientModule, portanto, é recomendado seu uso a partir da verão 4.3 do Angular.
 
-[![CircleCI](https://circleci.com/gh/brunoc107/ngx-viacep/tree/master.svg?style=svg)](https://circleci.com/gh/brunoc107/ngx-viacep/tree/master)
+![npm-publish](https://github.com/brunoc107/ngx-viacep/workflows/npm-publish/badge.svg)
 
 ## Instalação
 

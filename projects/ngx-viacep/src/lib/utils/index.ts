@@ -48,7 +48,7 @@ const validarUF = (uf: string): void => {
     throwCepError(CEPErrorCode.UF_MUITO_LONGA);
   }
 
-  if (!UFS_VALIDAS.some((it) => it === uf)) {
+  if (!UFS_VALIDAS.some((it) => it.toLowerCase() === uf.toLowerCase())) {
     throwCepError(CEPErrorCode.UF_NAO_EXISTE);
   }
 };

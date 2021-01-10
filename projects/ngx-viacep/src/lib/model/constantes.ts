@@ -1,6 +1,6 @@
 export const BASE_URL = 'https://viacep.com.br/ws';
 
-export const VALID_UFS: string[] = [
+export const UFS_VALIDAS: string[] = [
   'AC',
   'AL',
   'AM',

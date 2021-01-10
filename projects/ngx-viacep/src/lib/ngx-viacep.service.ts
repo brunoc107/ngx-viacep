@@ -7,9 +7,7 @@ import { CEPError } from '@models/cep-error';
 import { BASE_URL } from '@models/constantes';
 import {
   validarCEP,
-  validateState,
-  validateStreet,
-  validateTown,
+  validarEndereco,
 } from './utils';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -42,40 +40,18 @@ export class NgxViacepService {
   /**
    * Faz a busca aproximada
    *
-   * @param ufSigla
+   * @param uf
    * @param municipio
    * @param logradouro
    */
   buscarPorEndereco(
-    ufSigla: string,
+    uf: string,
     municipio: string,
     logradouro: string
-  ): Promise<Array<Endereco>> {
-    return new Promise<Array<Endereco>>((resolve, reject) => {
-      validateState(ufSigla);
-
-      validateTown(municipio);
-
-      validateStreet(logradouro);
-
-      this.searchAddress(ufSigla, municipio, logradouro)
-        .toPromise()
-        .then((enderecos: Array<Endereco>) => {
-          resolve(enderecos);
-        })
-        .catch(() => {
-          reject(new CEPError(CEPErrorCode.ERRO_SERVIDOR));
-        });
-    });
-  }
-
-  private searchAddress(
-    state: string,
-    town: string,
-    street: string
-  ): Observable<Array<Endereco>> {
-    const url = `${BASE_URL}/${state}/${town}/${street}/json`;
-
-    return this.http.get<Array<Endereco>>(url);
+  ): Observable<Endereco[]> {
+    return of({ uf, municipio, logradouro }).pipe(
+      validarEndereco(),
+      switchMap(() => this.http.get<Endereco[]>(`${BASE_URL}/${uf}/${municipio}/${logradouro}/json`))
+    );
   }
 }

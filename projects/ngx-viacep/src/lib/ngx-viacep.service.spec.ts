@@ -33,13 +33,13 @@ describe('NgxViacepService', () => {
   });
 
   describe('buscarPorCep', () => {
-    it('dado um CEP nulo deve retornar o erro CEP_INVALIDO', (done) => {
+    it('dado um CEP nulo deve retornar o erro CEP_VAZIO', (done) => {
       service
         .buscarPorCep(null)
         .pipe(
           catchError((erro: Error) => {
             expect(erro).toBeInstanceOf(CEPError);
-            expect(erro.message).toEqual('CEP_INVALIDO');
+            expect(erro.message).toEqual('CEP_VAZIO');
             done();
             return EMPTY;
           })
@@ -47,12 +47,12 @@ describe('NgxViacepService', () => {
         .subscribe();
     });
 
-    it('dado um CEP vazio deve retornar o erro CEP_INVALIDO', (done) => {
+    it('dado um CEP vazio deve retornar o erro CEP_VAZIO', (done) => {
       service
         .buscarPorCep('')
         .pipe(
           catchError((erro: Error) => {
-            expect(erro.message).toEqual('CEP_INVALIDO');
+            expect(erro.message).toEqual('CEP_VAZIO');
             done();
             return EMPTY;
           })
@@ -65,7 +65,7 @@ describe('NgxViacepService', () => {
         .buscarPorCep('       ')
         .pipe(
           catchError((erro: Error) => {
-            expect(erro.message).toEqual('CEP_INVALIDO');
+            expect(erro.message).toEqual('CEP_VAZIO');
             done();
             return EMPTY;
           })
@@ -91,7 +91,7 @@ describe('NgxViacepService', () => {
         .buscarPorCep('1234567')
         .pipe(
           catchError((erro: Error) => {
-            expect(erro.message).toEqual('CEP_INVALIDO');
+            expect(erro.message).toEqual('CEP_MUITO_CURTO');
             done();
             return EMPTY;
           })
@@ -104,7 +104,7 @@ describe('NgxViacepService', () => {
         .buscarPorCep('123456789')
         .pipe(
           catchError((erro: Error) => {
-            expect(erro.message).toEqual('CEP_INVALIDO');
+            expect(erro.message).toEqual('CEP_MUITO_LONGO');
             done();
             return EMPTY;
           })
@@ -140,13 +140,16 @@ describe('NgxViacepService', () => {
       const cep = '59144333';
       const enderecoResponse = {};
 
-      service.buscarPorCep(cep).pipe(
-        catchError((erro: Error) => {
-          expect(erro.message).toEqual('CEP_NAO_ENCONTRADO');
-          done();
-          return EMPTY;
-        })
-      ).subscribe();
+      service
+        .buscarPorCep(cep)
+        .pipe(
+          catchError((erro: Error) => {
+            expect(erro.message).toEqual('CEP_NAO_ENCONTRADO');
+            done();
+            return EMPTY;
+          })
+        )
+        .subscribe();
 
       const req = httpMock.expectOne(`${BASE_URL}/${cep}/json`);
       req.flush(enderecoResponse);
@@ -161,10 +164,14 @@ describe('NgxViacepService', () => {
 
       service
         .buscarPorEndereco(ufSigla, municipio, logradouro)
-        .catch((erro: Error) => {
-          expect(erro.message).toEqual('UF_VAZIA');
-          done();
-        });
+        .pipe(
+          catchError((erro: Error) => {
+            expect(erro.message).toEqual('UF_VAZIA');
+            done();
+            return EMPTY;
+          })
+        )
+        .subscribe();
     });
 
     it('dado um endereco com municipio vazia deve retornar o erro MUNICIPIO_VAZIO', (done) => {
@@ -174,10 +181,14 @@ describe('NgxViacepService', () => {
 
       service
         .buscarPorEndereco(ufSigla, municipio, logradouro)
-        .catch((erro: Error) => {
-          expect(erro.message).toEqual('MUNICIPIO_VAZIO');
-          done();
-        });
+        .pipe(
+          catchError((erro: Error) => {
+            expect(erro.message).toEqual('MUNICIPIO_VAZIO');
+            done();
+            return EMPTY;
+          })
+        )
+        .subscribe();
     });
 
     it('dado um endereco com logradouro vazia deve retornar o erro LOGRADOURO_VAZIO', (done) => {
@@ -187,28 +198,14 @@ describe('NgxViacepService', () => {
 
       service
         .buscarPorEndereco(ufSigla, municipio, logradouro)
-        .catch((erro: Error) => {
-          expect(erro.message).toEqual('LOGRADOURO_VAZIO');
-          done();
-        });
-    });
-
-    it('dado um endereco valido, mas o servidor lançar algum erro, deve retornar o erro ERRO_SERVIDOR', (done) => {
-      const uf = 'RN';
-      const municipio = 'ABC';
-      const logradouro = 'ASDFGHJKL';
-
-      service
-        .buscarPorEndereco(uf, municipio, logradouro)
-        .catch((erro: Error) => {
-          expect(erro.message).toEqual('ERRO_SERVIDOR');
-          done();
-        });
-
-      const req = httpMock.expectOne(
-        `${BASE_URL}/${uf}/${municipio}/${logradouro}/json`
-      );
-      req.error(new ErrorEvent(''));
+        .pipe(
+          catchError((erro: Error) => {
+            expect(erro.message).toEqual('LOGRADOURO_VAZIO');
+            done();
+            return EMPTY;
+          })
+        )
+        .subscribe();
     });
 
     it('dado um endereco valido deve retornar o erro endereço correto', (done) => {
@@ -228,11 +225,13 @@ describe('NgxViacepService', () => {
         gia: 'string',
       };
 
-      service.buscarPorEndereco(uf, municipio, logradouro).then((enderecos) => {
-        const found = enderecos.some((e) => e.logradouro === logradouro);
-        expect(found).toBeTrue();
-        done();
-      });
+      service
+        .buscarPorEndereco(uf, municipio, logradouro)
+        .subscribe((enderecos) => {
+          const found = enderecos.some((e) => e.logradouro === logradouro);
+          expect(found).toBeTrue();
+          done();
+        });
 
       const req = httpMock.expectOne(
         `${BASE_URL}/${uf}/${municipio}/${logradouro}/json`

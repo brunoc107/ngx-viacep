@@ -30,13 +30,12 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-viacep/tsconfig.lib.json",
-              "projects/ngx-viacep/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "lintFilePatterns": [
+              "projects/ngx-viacep/**/*.ts",
+              "projects/ngx-viacep/**/*.html"
+            ]
           }
         }
       }
@@ -133,19 +132,19 @@
               "projects/ngx-viacep-showcase/src/favicon.ico",
               "projects/ngx-viacep-showcase/src/assets"
             ],
-            "styles": ["projects/ngx-viacep-showcase/src/styles.scss"],
+            "styles": [
+              "projects/ngx-viacep-showcase/src/styles.scss"
+            ],
             "scripts": []
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-viacep-showcase/tsconfig.app.json",
-              "projects/ngx-viacep-showcase/tsconfig.spec.json",
-              "projects/ngx-viacep-showcase/e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
+            "lintFilePatterns": [
+              "projects/ngx-viacep-showcase/**/*.ts",
+              "projects/ngx-viacep-showcase/**/*.html"
+            ]
           }
         },
         "e2e": {

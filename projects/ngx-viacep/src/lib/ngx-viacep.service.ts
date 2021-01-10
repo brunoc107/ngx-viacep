@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Endereco } from './model/endereco';
-import { ErroCep } from './model/erro-cep';
 import { Observable } from 'rxjs';
-import { ErrorValues } from './model/error-values.enum';
+import { Endereco } from '@models/endereco';
+import { CEPErrorCode } from '@models/cep-error-code';
+import { CEPError } from '@models/cep-error';
 
 const BASE_URL = 'https://viacep.com.br/ws';
 
@@ -20,21 +20,21 @@ export class NgxViacepService {
   constructor(private http: HttpClient) { }
 
 
-  private static throwCepError(error: ErrorValues) {
-    throw new ErroCep(error);
+  private static throwCepError(error: CEPErrorCode) {
+    throw new CEPError(error);
   }
 
   private static validateCep(cep: string): void {
 
     const regex = new RegExp(/^[0-9]+$/);
     if (NgxViacepService.stringIsEmpty(cep)) {
-      NgxViacepService.throwCepError(ErrorValues.CEP_VAZIO);
+      NgxViacepService.throwCepError(CEPErrorCode.CEP_VAZIO);
     } else if (!regex.test(cep)) {
-      NgxViacepService.throwCepError(ErrorValues.CEP_INVALIDO);
+      NgxViacepService.throwCepError(CEPErrorCode.CEP_INVALIDO);
     } else if (cep.length < 8) {
-      NgxViacepService.throwCepError(ErrorValues.CEP_MUITO_CURTO);
+      NgxViacepService.throwCepError(CEPErrorCode.CEP_MUITO_CURTO);
     } else if (cep.length > 8) {
-      NgxViacepService.throwCepError(ErrorValues.CEP_MUITO_LONGO);
+      NgxViacepService.throwCepError(CEPErrorCode.CEP_MUITO_LONGO);
     }
   }
 
@@ -71,41 +71,41 @@ export class NgxViacepService {
   private static validateState(province: string): void {
 
     if (NgxViacepService.stringIsEmpty(province)) {
-      NgxViacepService.throwCepError(ErrorValues.UF_VAZIA);
+      NgxViacepService.throwCepError(CEPErrorCode.UF_VAZIA);
     }
 
     if (!NgxViacepService.stringHasMinimumLength(province, 2)) {
-      NgxViacepService.throwCepError(ErrorValues.UF_MUITO_CURTA);
+      NgxViacepService.throwCepError(CEPErrorCode.UF_MUITO_CURTA);
     }
 
     if (!NgxViacepService.stringHasMaximumLength(province, 2)) {
-      NgxViacepService.throwCepError(ErrorValues.UF_MUITO_LONGA);
+      NgxViacepService.throwCepError(CEPErrorCode.UF_MUITO_LONGA);
     }
 
     if (!NgxViacepService.ufExists(province)) {
-      NgxViacepService.throwCepError(ErrorValues.UF_NAO_EXISTE);
+      NgxViacepService.throwCepError(CEPErrorCode.UF_NAO_EXISTE);
     }
   }
 
   private static validateTown(town: string): void {
 
     if (NgxViacepService.stringIsEmpty(town)) {
-      NgxViacepService.throwCepError(ErrorValues.MUNICIPIO_VAZIO);
+      NgxViacepService.throwCepError(CEPErrorCode.MUNICIPIO_VAZIO);
     }
 
     if (!NgxViacepService.stringHasMinimumLength(town, 3)) {
-      NgxViacepService.throwCepError(ErrorValues.MUNICIPIO_MUITO_CURTO);
+      NgxViacepService.throwCepError(CEPErrorCode.MUNICIPIO_MUITO_CURTO);
     }
   }
 
   private static validateStreet(street: string): void {
 
     if (NgxViacepService.stringIsEmpty(street)) {
-      NgxViacepService.throwCepError(ErrorValues.LOGRADOURO_VAZIO);
+      NgxViacepService.throwCepError(CEPErrorCode.LOGRADOURO_VAZIO);
     }
 
     if (!NgxViacepService.stringHasMinimumLength(street, 3)) {
-      NgxViacepService.throwCepError(ErrorValues.LOGRADOURO_MUITO_CURTO);
+      NgxViacepService.throwCepError(CEPErrorCode.LOGRADOURO_MUITO_CURTO);
     }
   }
 
@@ -126,10 +126,10 @@ export class NgxViacepService {
         if ('cep' in endereco) {
           resolve(endereco);
         } else {
-          reject(new ErroCep(ErrorValues.CEP_NAO_ENCONTRADO));
+          reject(new CEPError(CEPErrorCode.CEP_NAO_ENCONTRADO));
         }
       }).catch(() => {
-        reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
+        reject(new CEPError(CEPErrorCode.ERRO_SERVIDOR));
       });
     });
   }
@@ -154,7 +154,7 @@ export class NgxViacepService {
       this.searchAddress(ufSigla, municipio, logradouro).toPromise().then((enderecos: Array<Endereco>) => {
         resolve(enderecos);
       }).catch(() => {
-        reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
+        reject(new CEPError(CEPErrorCode.ERRO_SERVIDOR));
       });
     });
   }

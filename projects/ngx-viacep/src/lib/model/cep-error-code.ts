@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-shadow
-export enum ErrorValues {
+export enum CEPErrorCode {
   CEP_NAO_ENCONTRADO,
   CEP_VAZIO,
   CEP_INVALIDO,

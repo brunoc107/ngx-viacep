@@ -18,6 +18,7 @@ export class ErroCep extends Error {
 
   /**
    * Compares the thrown error type with an ErrorValues enum item
+   *
    * @param type
    */
   public ofType(type: ErrorValues): boolean {

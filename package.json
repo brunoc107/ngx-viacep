@@ -29,7 +29,9 @@
     "build:lib": "npm run build ngx-viacep",
     "build:lib:prod": "npm run build:lib -- --prod",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "npm run lint:lib && npm run lint:showcase",
+    "lint:lib": "ng lint ngx-viacep --fix",
+    "lint:showcase": "ng lint ngx-viacep-showcase --fix",
     "e2e": "ng e2e",
     "exec": "npm run build:lib:prod && ng serve",
     "page-build": "ng build --prod --base-href \"https://brunoc107.github.io/ngx-viacep/\"",
@@ -79,7 +81,17 @@
     "standard-version": "^9.0.0",
     "ts-node": "~9.0.0",
     "tslib": "^2.0.3",
-    "tslint": "^6.1.3",
-    "typescript": "~4.0.5"
+    "typescript": "~4.0.5",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsdoc": "30.7.6",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "@angular-eslint/builder": "1.0.0",
+    "@angular-eslint/eslint-plugin": "1.0.0",
+    "@angular-eslint/eslint-plugin-template": "1.0.0",
+    "@angular-eslint/schematics": "1.0.0",
+    "@angular-eslint/template-parser": "1.0.0",
+    "@typescript-eslint/eslint-plugin": "4.3.0",
+    "@typescript-eslint/parser": "4.3.0"
   }
 }

@@ -19,6 +19,7 @@ export class NgxViacepService {
 
   constructor(private http: HttpClient) { }
 
+
   private static throwCepError(error: ErrorValues) {
     throw new ErroCep(error);
   }
@@ -108,22 +109,9 @@ export class NgxViacepService {
     }
   }
 
-  private findByCep(cep: string): Observable<Endereco> {
-
-    const url = `${BASE_URL}/${cep}/json`;
-
-    return this.http.get<Endereco>(url);
-  }
-
-  private searchAddress(state: string, town: string, street: string): Observable<Array<Endereco>> {
-
-    const url = `${BASE_URL}/${state}/${town}/${street}/json`;
-
-    return this.http.get<Array<Endereco>>(url);
-  }
-
   /**
    * Busca o endereço a partir do CEP
+   *
    * @param cep
    */
   buscarPorCep(cep: string): Promise<Endereco> {
@@ -148,6 +136,7 @@ export class NgxViacepService {
 
   /**
    * Faz a busca aproximada
+   *
    * @param ufSigla
    * @param municipio
    * @param logradouro
@@ -168,5 +157,19 @@ export class NgxViacepService {
         reject(new ErroCep(ErrorValues.ERRO_SERVIDOR));
       });
     });
+  }
+
+  private findByCep(cep: string): Observable<Endereco> {
+
+    const url = `${BASE_URL}/${cep}/json`;
+
+    return this.http.get<Endereco>(url);
+  }
+
+  private searchAddress(state: string, town: string, street: string): Observable<Array<Endereco>> {
+
+    const url = `${BASE_URL}/${state}/${town}/${street}/json`;
+
+    return this.http.get<Array<Endereco>>(url);
   }
 }

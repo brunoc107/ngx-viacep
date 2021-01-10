@@ -4,9 +4,9 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { NgxViacepService } from './ngx-viacep.service';
-import { Endereco } from '@models/endereco';
-import { BASE_URL } from '@models/constantes';
-import { CEPError } from '@models/cep-error';
+import { Endereco } from './model/endereco';
+import { BASE_URL } from './model/constantes';
+import { CEPError } from './model/cep-error';
 import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 

@@ -1,6 +1,6 @@
-import { CEPError } from '@models/cep-error';
-import { CEPErrorCode } from '@models/cep-error-code';
-import { UFS_VALIDAS } from '@models/constantes';
+import { CEPError } from '../model/cep-error';
+import { CEPErrorCode } from '../model/cep-error-code';
+import { UFS_VALIDAS } from '../model/constantes';
 import { Observable } from 'rxjs';
 
 const throwCepError = (error: CEPErrorCode) => {

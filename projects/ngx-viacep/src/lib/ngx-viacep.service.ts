@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Endereco } from '@models/endereco';
-import { CEPErrorCode } from '@models/cep-error-code';
-import { CEPError } from '@models/cep-error';
-import { BASE_URL } from '@models/constantes';
+import { Endereco } from './model/endereco';
+import { CEPErrorCode } from './model/cep-error-code';
+import { CEPError } from './model/cep-error';
+import { BASE_URL } from './model/constantes';
 import {
   validarCEP,
   validarEndereco,

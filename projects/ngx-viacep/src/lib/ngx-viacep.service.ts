@@ -4,13 +4,7 @@ import { Observable } from 'rxjs';
 import { Endereco } from '@models/endereco';
 import { CEPErrorCode } from '@models/cep-error-code';
 import { CEPError } from '@models/cep-error';
-
-const BASE_URL = 'https://viacep.com.br/ws';
-
-const VALID_UFS: string[] = [
-  'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO',
-  'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR',
-  'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
+import { BASE_URL, VALID_UFS } from '@models/constantes';
 
 @Injectable({
   providedIn: 'root'

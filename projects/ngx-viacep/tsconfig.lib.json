@@ -4,9 +4,9 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
-    "declaration": true,
-    "declarationMap": true,
-    "inlineSources": true,
+    "declaration": false,
+    "declarationMap": false,
+    "inlineSources": false,
     "types": [],
     "lib": ["dom", "es2018"]
   },

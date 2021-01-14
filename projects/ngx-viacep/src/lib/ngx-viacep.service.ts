@@ -15,7 +15,9 @@ import { map, switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class NgxViacepService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log('NgxViacepService OLOCO');
+  }
 
   /**
    * Busca o endereço a partir do CEP

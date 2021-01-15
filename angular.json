@@ -69,12 +69,19 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "projects/ngx-viacep-showcase/src/styles.scss"
+              "projects/ngx-viacep-showcase/src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/popper.js/dist/umd/popper.js"
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-typescript.js",
+              "node_modules/prismjs/components/prism-bash.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
             ]
           },
           "configurations": {

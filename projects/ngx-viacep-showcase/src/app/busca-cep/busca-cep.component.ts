@@ -16,9 +16,9 @@ import { catchError } from 'rxjs/operators';
 })
 export class BuscaCepComponent implements OnInit {
   cep = '';
-  endereco: Endereco;
-  error: boolean;
-  errorMessage: string;
+  endereco?: Endereco | null;
+  error = false;
+  errorMessage = '';
 
   constructor(private viacep: NgxViacepService) {}
 

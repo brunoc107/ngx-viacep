@@ -18,9 +18,9 @@ export class BuscaEnderecoComponent implements OnInit {
   uf = '';
   municipio = '';
   logradouro = '';
-  enderecos: Endereco[];
-  error: boolean;
-  errorMessage: string;
+  enderecos: Endereco[] = [];
+  error = false;
+  errorMessage = '';
 
   constructor(private viacep: NgxViacepService) {}
 
@@ -70,9 +70,8 @@ export class BuscaEnderecoComponent implements OnInit {
 
             default:
               this.errorMessage = 'Erro ao buscar os endereços :O';
-
-              return EMPTY;
           }
+          return EMPTY;
         })
       )
       .subscribe((enderecos: Array<Endereco>) => {

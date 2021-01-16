@@ -9,7 +9,7 @@ import {Endereco} from '@brunoc/ngx-viacep';
 export class AddressCardComponent implements OnInit {
 
   @Input()
-  endereco: Endereco;
+  endereco!: Endereco;
 
   constructor() { }
 

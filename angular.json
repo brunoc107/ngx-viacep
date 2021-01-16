@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-viacep",
       "sourceRoot": "projects/ngx-viacep/src",
-      "prefix": "vcep",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -30,11 +30,14 @@
           }
         },
         "lint": {
-          "builder": "@angular-eslint/builder:lint",
+          "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "lintFilePatterns": [
-              "projects/ngx-viacep/**/*.ts",
-              "projects/ngx-viacep/**/*.html"
+            "tsConfig": [
+              "projects/ngx-viacep/tsconfig.lib.json",
+              "projects/ngx-viacep/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
             ]
           }
         }
@@ -66,12 +69,19 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "projects/ngx-viacep-showcase/src/styles.scss"
+              "projects/ngx-viacep-showcase/src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/popper.js/dist/umd/popper.js"
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-typescript.js",
+              "node_modules/prismjs/components/prism-bash.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
             ]
           },
           "configurations": {
@@ -139,11 +149,15 @@
           }
         },
         "lint": {
-          "builder": "@angular-eslint/builder:lint",
+          "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "lintFilePatterns": [
-              "projects/ngx-viacep-showcase/**/*.ts",
-              "projects/ngx-viacep-showcase/**/*.html"
+            "tsConfig": [
+              "projects/ngx-viacep-showcase/tsconfig.app.json",
+              "projects/ngx-viacep-showcase/tsconfig.spec.json",
+              "projects/ngx-viacep-showcase/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
             ]
           }
         },
@@ -162,5 +176,5 @@
       }
     }
   },
-  "defaultProject": "ngx-viacep-showcase"
+  "defaultProject": "ngx-viacep"
 }

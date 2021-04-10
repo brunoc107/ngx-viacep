@@ -1,6 +1,13 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@brunoc/ngx-viacep": [
+        "dist/brunoc/ngx-viacep/brunoc-ngx-viacep",
+        "dist/brunoc/ngx-viacep"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -15,14 +22,13 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
-    "paths": {
-      "@brunoc/ngx-viacep": ["dist/ngx-viacep"]
-    }
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
+    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
     "enableIvy": false
   }
 }

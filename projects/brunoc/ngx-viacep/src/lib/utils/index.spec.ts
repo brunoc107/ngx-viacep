@@ -1,25 +1,10 @@
-import { EMPTY, of, throwError } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { validarCEP } from './index';
 import { catchError } from 'rxjs/operators';
-import { CEPError } from '@models/cep-error';
+import { CEPError } from '../model/cep-error';
 
 describe('Test utils functions', () => {
   describe('validarCEP', () => {
-    it('Dado um cep null deve retornar o erro CEP_INVALIDO', (done) => {
-      const cep = null;
-
-      of(cep)
-        .pipe(
-          validarCEP(),
-          catchError((e) => {
-            expect(e).toBeInstanceOf(CEPError);
-            done();
-            return EMPTY;
-        })
-        )
-        .subscribe();
-    });
-
     it('Dado um cep vazio deve retornar o erro CEP_INVALIDO', (done) => {
       const cep = '';
 
@@ -69,10 +54,8 @@ describe('Test utils functions', () => {
       const cep = '12345678';
 
       of(cep)
-        .pipe(
-          validarCEP()
-        )
-        .subscribe(result => {
+        .pipe(validarCEP())
+        .subscribe((result) => {
           expect(result).toEqual(cep);
           done();
         });

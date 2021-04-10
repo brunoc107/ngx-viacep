@@ -12,5 +12,4 @@ export class CEPError extends Error {
   getCode(): CEPErrorCode {
     return this.code;
   }
-
 }

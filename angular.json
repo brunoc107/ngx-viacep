@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-viacep": {
+    "@brunoc/ngx-viacep": {
       "projectType": "library",
-      "root": "projects/ngx-viacep",
-      "sourceRoot": "projects/ngx-viacep/src",
+      "root": "projects/brunoc/ngx-viacep",
+      "sourceRoot": "projects/brunoc/ngx-viacep/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-viacep/tsconfig.lib.json",
-            "project": "projects/ngx-viacep/ng-package.json"
+            "tsConfig": "projects/brunoc/ngx-viacep/tsconfig.lib.json",
+            "project": "projects/brunoc/ngx-viacep/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-viacep/tsconfig.lib.prod.json"
+              "tsConfig": "projects/brunoc/ngx-viacep/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-viacep/src/test.ts",
-            "tsConfig": "projects/ngx-viacep/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-viacep/karma.conf.js"
+            "main": "projects/brunoc/ngx-viacep/src/test.ts",
+            "tsConfig": "projects/brunoc/ngx-viacep/tsconfig.spec.json",
+            "karmaConfig": "projects/brunoc/ngx-viacep/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-viacep/tsconfig.lib.json",
-              "projects/ngx-viacep/tsconfig.spec.json"
+              "projects/brunoc/ngx-viacep/tsconfig.lib.json",
+              "projects/brunoc/ngx-viacep/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -176,5 +176,5 @@
       }
     }
   },
-  "defaultProject": "ngx-viacep"
+  "defaultProject": "@brunoc/ngx-viacep"
 }

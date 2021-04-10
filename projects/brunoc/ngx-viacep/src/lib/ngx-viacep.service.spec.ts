@@ -6,7 +6,6 @@ import {
 import { NgxViacepService } from './ngx-viacep.service';
 import { Endereco } from './model/endereco';
 import { BASE_URL } from './model/constantes';
-import { CEPError } from './model/cep-error';
 import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
@@ -33,20 +32,6 @@ describe('NgxViacepService', () => {
   });
 
   describe('buscarPorCep', () => {
-    it('dado um CEP nulo deve retornar o erro CEP_VAZIO', (done) => {
-      service
-        .buscarPorCep(null)
-        .pipe(
-          catchError((erro: Error) => {
-            expect(erro).toBeInstanceOf(CEPError);
-            expect(erro.message).toEqual('CEP_VAZIO');
-            done();
-            return EMPTY;
-          })
-        )
-        .subscribe();
-    });
-
     it('dado um CEP vazio deve retornar o erro CEP_VAZIO', (done) => {
       service
         .buscarPorCep('')
@@ -157,40 +142,6 @@ describe('NgxViacepService', () => {
   });
 
   describe('buscarPorEndereco', () => {
-    it('dado um endereco com ufSigla vazia deve retornar o erro UF_VAZIA', (done) => {
-      const ufSigla = '';
-      const municipio = null;
-      const logradouro = null;
-
-      service
-        .buscarPorEndereco(ufSigla, municipio, logradouro)
-        .pipe(
-          catchError((erro: Error) => {
-            expect(erro.message).toEqual('UF_VAZIA');
-            done();
-            return EMPTY;
-          })
-        )
-        .subscribe();
-    });
-
-    it('dado um endereco com municipio vazia deve retornar o erro MUNICIPIO_VAZIO', (done) => {
-      const ufSigla = 'RN';
-      const municipio = '';
-      const logradouro = null;
-
-      service
-        .buscarPorEndereco(ufSigla, municipio, logradouro)
-        .pipe(
-          catchError((erro: Error) => {
-            expect(erro.message).toEqual('MUNICIPIO_VAZIO');
-            done();
-            return EMPTY;
-          })
-        )
-        .subscribe();
-    });
-
     it('dado um endereco com logradouro vazia deve retornar o erro LOGRADOURO_VAZIO', (done) => {
       const ufSigla = 'RN';
       const municipio = 'ABC';

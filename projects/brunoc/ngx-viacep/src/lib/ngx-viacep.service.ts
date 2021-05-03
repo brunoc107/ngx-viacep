@@ -5,10 +5,7 @@ import { Endereco } from './model/endereco';
 import { CEPErrorCode } from './model/cep-error-code';
 import { CEPError } from './model/cep-error';
 import { BASE_URL } from './model/constantes';
-import {
-  validarCEP,
-  validarEndereco,
-} from './utils';
+import { validarCEP, validarEndereco } from './utils';
 import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
@@ -51,7 +48,11 @@ export class NgxViacepService {
   ): Observable<Endereco[]> {
     return of({ uf, municipio, logradouro }).pipe(
       validarEndereco(),
-      switchMap(() => this.http.get<Endereco[]>(`${BASE_URL}/${uf}/${municipio}/${logradouro}/json`))
+      switchMap(() =>
+        this.http.get<Endereco[]>(
+          `${BASE_URL}/${uf}/${municipio}/${logradouro}/json`
+        )
+      )
     );
   }
 }

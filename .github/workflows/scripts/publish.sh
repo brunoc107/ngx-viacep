@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+LIB_OUTPUT_PATH=./dist/brunoc/ngx-viacep/
+
 echo "Copying the lib package.json"
-cp projects/ngx-viacep/package.json ./dist/ngx-viacep/
+cp projects/brunoc/ngx-viacep/package.json $LIB_OUTPUT_PATH
 
 echo "Copying the lib README.md"
-cp ./README.md ./dist/ngx-viacep/
+cp ./README.md $LIB_OUTPUT_PATH
 
 echo "Copying the license"
-cp ./LICENSE ./dist/ngx-viacep/
+cp ./LICENSE $LIB_OUTPUT_PATH
 
 echo "Retrieving credentials"
 if [ -z "$NODE_AUTH_TOKEN" ]; then
@@ -16,5 +18,5 @@ if [ -z "$NODE_AUTH_TOKEN" ]; then
 fi
 
 echo "Publishing the package"
-cd ./dist/ngx-viacep/ || exit 1
+cd $LIB_OUTPUT_PATH || exit 1
 npm publish

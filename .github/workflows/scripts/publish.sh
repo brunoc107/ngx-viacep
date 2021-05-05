@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LIB_OUTPUT_PATH=./dist/brunoc/ngx-viacep/
+LIB_OUTPUT_PATH=./dist/ngx-viacep/
 
 echo "Copying the lib package.json"
 cp projects/brunoc/ngx-viacep/package.json $LIB_OUTPUT_PATH

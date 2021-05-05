@@ -4,7 +4,6 @@
   "compilerOptions": {
     "paths": {
       "@brunoc/ngx-viacep": [
-        "dist/brunoc/ngx-viacep/brunoc-ngx-viacep",
         "dist/brunoc/ngx-viacep"
       ]
     },

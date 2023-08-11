@@ -35,7 +35,7 @@
     "lint:showcase": "ng lint ngx-viacep-showcase --fix",
     "e2e": "ng e2e",
     "exec": "npm run build:lib:prod && ng serve",
-    "page-build": "ng build --configuration production --base-href \"https://brunoc107.github.io/ngx-viacep/\"",
+    "page-build": "ng build ngx-viacep-showcase --base-href \"https://brunoc107.github.io/ngx-viacep/\" -c production",
     "page-deploy": "ngh --no-silent --dir dist/ngx-viacep-showcase",
     "github-page": "npm run build:lib:prod && npm run page-build && npm run page-deploy"
   },

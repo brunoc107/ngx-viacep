@@ -1,6 +1,6 @@
 {
   "name": "@brunoc/ngx-viacep",
-  "version": "3.3.7",
+  "version": "3.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/brunoc107/ngx-viacep.git"
@@ -23,11 +23,11 @@
     "url": "https://github.com/brunoc107/ngx-viacep.git/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^11.2.9",
-    "@angular/core": "^11.2.9"
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "main": "bundles/brunoc-ngx-viacep.umd.js",
   "module": "fesm2015/brunoc-ngx-viacep.js",

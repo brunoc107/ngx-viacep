@@ -62,7 +62,6 @@
             "main": "projects/ngx-viacep-showcase/src/main.ts",
             "polyfills": "projects/ngx-viacep-showcase/src/polyfills.ts",
             "tsConfig": "projects/ngx-viacep-showcase/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "projects/ngx-viacep-showcase/src/favicon.ico",
               "projects/ngx-viacep-showcase/src/assets"
@@ -77,12 +76,18 @@
               "node_modules/jquery/dist/jquery.slim.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/popper.js/dist/umd/popper.js",
-              "node_modules/marked/lib/marked.js",
+              "node_modules/marked/marked.min.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-typescript.js",
               "node_modules/prismjs/components/prism-bash.js",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -112,7 +117,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

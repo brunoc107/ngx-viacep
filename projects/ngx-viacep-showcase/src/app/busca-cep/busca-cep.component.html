@@ -1,45 +1,36 @@
-<div class="container">
+<header class="bg-white shadow">
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">Buscar CEP</h1>
+  </div>
+</header>
+<main>
+  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-  <h2>Buscar CEP</h2>
-
-  <p>
-    Utilize o formulário abaixo para buscar um CEP :)
-  </p>
-
-  <div class="row">
-    <div
-      class="col-sm-12 col-md-5 col-lg-4 col-xl-3"
-    >
-      <div class="input-group mb-3">
+  <div class="min-w-full md:min-w-none">
+      <div class="flex flex-rows rounded-xl p-3 bg-white shadow mb-5">
         <input
           type="text"
-          class="form-control"
-          placeholder="Digite o CEP"
           aria-label="CEP a ser buscado"
           aria-describedby="button-addon2"
           [(ngModel)]="cep"
+          class="flex flex-grow outline-none mr-3"
+          placeholder="00000-000"
         >
-        <div class="input-group-append">
-          <button (click)="buscarCep()" class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
-        </div>
+        <button
+          (click)="buscarCep()"
+          class="bg-blue-500 py-3 px-4 rounded-lg text-white hover:bg-blue-700"
+        >
+          Buscar
+        </button>
       </div>
 
-    </div>
-    <div
-      class="col-sm-12 col-md-7 col-lg-8 col-xl-9"
-    >
-      <div>
-        <div class="alert alert-danger" role="alert" *ngIf="error; else addr">
+      <div class="rounded-xl p-3 bg-red-400 shadow" role="alert" *ngIf="error; else addr">
           {{errorMessage}}
-        </div>
-        <ng-template #addr>
-            <app-address-card
-              *ngIf="endereco"
-              [endereco]="endereco"
-            ></app-address-card>
-        </ng-template>
       </div>
-
+      <ng-template #addr>
+        <app-address-card *ngIf="endereco" [endereco]="endereco"/>
+      </ng-template>
     </div>
+
   </div>
-</div>
+</main>

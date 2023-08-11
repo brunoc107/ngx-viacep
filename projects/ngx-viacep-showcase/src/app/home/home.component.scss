@@ -2,3 +2,32 @@
   text-decoration: line-through;
   color: #aaa;
 }
+
+h1 {
+  margin-top: .1em;
+  font-size: 2.5em;
+  margin-bottom: .5em;
+}
+
+h2 {
+  margin-top: .5em;
+  font-size: 2em;
+  margin-bottom: .5em;
+}
+
+p {
+  margin-bottom: .5em;
+}
+
+p img {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+code {
+  background-color: #ddd;
+  font-family: monospace;
+  padding: 1px 8px;
+  display: inline-block;
+  border-radius: 4px;
+}

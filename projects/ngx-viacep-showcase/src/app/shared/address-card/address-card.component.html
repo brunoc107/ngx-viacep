@@ -1,9 +1,7 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">{{ endereco.logradouro }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">
-      {{ endereco.bairro }} &middot; {{ endereco.cep }}
-      {{ endereco.localidade }}, {{ endereco.uf }}
-    </h6>
+<div class="rounded-xl p-3 bg-white shadow mb-3">
+  <div class="text-xl font-bold text-slate-600 mb-3 pb-3 border-b">{{ endereco.logradouro }}</div>
+  <div class="text-md text-slate-800">
+    {{ endereco.bairro }} &middot; {{ endereco.localidade }}, {{ endereco.uf }}
   </div>
+  <div class="text-slate-400 text-right mt-3 pt-3 border-t">{{ endereco.cep }}</div>
 </div>

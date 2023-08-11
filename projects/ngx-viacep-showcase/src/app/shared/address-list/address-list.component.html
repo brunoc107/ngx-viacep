@@ -1,5 +1,8 @@
 <div>
-  <div>Endereços encontrados: {{enderecos.length}}</div>
+  <div class="font-bold text-slate-600 mb-3">
+    Endereços encontrados:
+    <span class="font-normal text-slate-800">{{enderecos.length}}</span>
+  </div>
   <app-address-card
     *ngFor="let endereco of enderecos"
     [endereco]="endereco"

@@ -181,6 +181,5 @@
         }
       }
     }
-  },
-  "defaultProject": "@brunoc/ngx-viacep"
+  }
 }

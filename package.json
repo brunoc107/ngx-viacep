@@ -27,7 +27,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:lib": "npm run build @brunoc/ngx-viacep",
-    "build:lib:prod": "npm run build:lib -- --configuration production",
+    "build:lib:prod": "npm run build @brunoc/ngx-viacep -c production",
     "test": "npm run test:lib",
     "test:lib": "ng test @brunoc/ngx-viacep",
     "lint": "npm run lint:lib && npm run lint:showcase",

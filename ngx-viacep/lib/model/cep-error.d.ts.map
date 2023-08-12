@@ -1,0 +1,1 @@
+{"version":3,"file":"cep-error.d.ts","sourceRoot":"","sources":["../../../../projects/brunoc/ngx-viacep/src/lib/model/cep-error.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,kBAAkB,CAAC;AAEhD,qBAAa,QAAS,SAAQ,KAAK;IACrB,OAAO,CAAC,IAAI;gBAAJ,IAAI,EAAE,YAAY;IAKtC;;OAEG;IACH,OAAO,IAAI,YAAY;CAGxB"}

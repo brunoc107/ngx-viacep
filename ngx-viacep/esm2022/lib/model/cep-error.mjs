@@ -1,0 +1,16 @@
+import { CEPErrorCode } from './cep-error-code';
+export class CEPError extends Error {
+    code;
+    constructor(code) {
+        super(CEPErrorCode[code]);
+        this.code = code;
+        Object.setPrototypeOf(this, CEPError.prototype);
+    }
+    /**
+     * Returns the Error code
+     */
+    getCode() {
+        return this.code;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2VwLWVycm9yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvYnJ1bm9jL25neC12aWFjZXAvc3JjL2xpYi9tb2RlbC9jZXAtZXJyb3IudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFlBQVksRUFBRSxNQUFNLGtCQUFrQixDQUFDO0FBRWhELE1BQU0sT0FBTyxRQUFTLFNBQVEsS0FBSztJQUNiO0lBQXBCLFlBQW9CLElBQWtCO1FBQ3BDLEtBQUssQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQztRQURSLFNBQUksR0FBSixJQUFJLENBQWM7UUFFcEMsTUFBTSxDQUFDLGNBQWMsQ0FBQyxJQUFJLEVBQUUsUUFBUSxDQUFDLFNBQVMsQ0FBQyxDQUFDO0lBQ2xELENBQUM7SUFFRDs7T0FFRztJQUNILE9BQU87UUFDTCxPQUFPLElBQUksQ0FBQyxJQUFJLENBQUM7SUFDbkIsQ0FBQztDQUNGIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ0VQRXJyb3JDb2RlIH0gZnJvbSAnLi9jZXAtZXJyb3ItY29kZSc7XG5cbmV4cG9ydCBjbGFzcyBDRVBFcnJvciBleHRlbmRzIEVycm9yIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSBjb2RlOiBDRVBFcnJvckNvZGUpIHtcbiAgICBzdXBlcihDRVBFcnJvckNvZGVbY29kZV0pO1xuICAgIE9iamVjdC5zZXRQcm90b3R5cGVPZih0aGlzLCBDRVBFcnJvci5wcm90b3R5cGUpO1xuICB9XG5cbiAgLyoqXG4gICAqIFJldHVybnMgdGhlIEVycm9yIGNvZGVcbiAgICovXG4gIGdldENvZGUoKTogQ0VQRXJyb3JDb2RlIHtcbiAgICByZXR1cm4gdGhpcy5jb2RlO1xuICB9XG59XG4iXX0=

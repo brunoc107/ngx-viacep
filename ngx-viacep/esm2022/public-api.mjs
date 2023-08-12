@@ -1,0 +1,9 @@
+/*
+ * Public API Surface of ngx-viacep
+ */
+export * from './lib/ngx-viacep.module';
+export * from './lib/ngx-viacep.service';
+export * from './lib/model/endereco';
+export * from './lib/model/cep-error-code';
+export * from './lib/model/cep-error';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2JydW5vYy9uZ3gtdmlhY2VwL3NyYy9wdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyx5QkFBeUIsQ0FBQztBQUN4QyxjQUFjLDBCQUEwQixDQUFDO0FBQ3pDLGNBQWMsc0JBQXNCLENBQUM7QUFDckMsY0FBYyw0QkFBNEIsQ0FBQztBQUMzQyxjQUFjLHVCQUF1QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBuZ3gtdmlhY2VwXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9saWIvbmd4LXZpYWNlcC5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbmd4LXZpYWNlcC5zZXJ2aWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL21vZGVsL2VuZGVyZWNvJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL21vZGVsL2NlcC1lcnJvci1jb2RlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL21vZGVsL2NlcC1lcnJvcic7XG4iXX0=

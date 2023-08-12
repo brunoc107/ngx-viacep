@@ -22,6 +22,12 @@ Via yarn:
 yarn add @brunoc/ngx-viacep
 ```
 
+Via pnpm:
+
+```bash
+pnpm i @brunoc/ngx-viacep
+```
+
 ## Instruções
 
 No módulo onde for necessário buscar CEP, importar `NgxViacepModule` e adicionar aos imports, como no exemplo abaixo:

@@ -35,9 +35,11 @@
     "lint:showcase": "ng lint ngx-viacep-showcase --fix",
     "e2e": "ng e2e",
     "exec": "npm run build:lib:prod && ng serve",
+    "page-config": "cp README.md projects/ngx-viacep-showcase/src/assets/README.md",
     "page-build": "ng build ngx-viacep-showcase --base-href \"https://brunoc107.github.io/ngx-viacep/\" -c production",
     "page-deploy": "ngh --dir dist/ngx-viacep-showcase",
-    "github-page": "npm run build:lib:prod && npm run page-build && npm run page-deploy"
+    "page-after": "rm projects/ngx-viacep-showcase/src/assets/README.md",
+    "github-page": "npm run build:lib:prod && npm run page-config && npm run page-build && npm run page-deploy && npm run page-after"
   },
   "private": true,
   "dependencies": {

@@ -13,13 +13,19 @@ Uma biblioteca Angular para busca de CEP e endereços pelo serviço [ViaCep](htt
 Via npm:
 
 ```bash
-$ npm install @brunoc/ngx-viacep --save
+npm install @brunoc/ngx-viacep --save
 ```
 
 Via yarn:
 
 ```bash
-$ yarn add @brunoc/ngx-viacep
+yarn add @brunoc/ngx-viacep
+```
+
+Via pnpm:
+
+```bash
+pnpm i @brunoc/ngx-viacep
 ```
 
 ## Instruções

@@ -10,7 +10,7 @@ h1 {
 }
 
 h2 {
-  margin-top: .5em;
+  margin-top: 1em;
   font-size: 2em;
   margin-bottom: .5em;
 }
@@ -30,4 +30,13 @@ code {
   padding: 1px 8px;
   display: inline-block;
   border-radius: 4px;
+}
+
+.md-link {
+  color: #0055aa;
+
+  &:hover {
+    color: #0077cc;
+    border-bottom: 1px solid #0077cc;
+  }
 }

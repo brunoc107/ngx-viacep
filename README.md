@@ -1,6 +1,6 @@
 # Ngx-Viacep!
 
-Uma biblioteca Angular para busca de CEP e endereços pelo serviço [ViaCep](https://viacep.com.br/).
+Uma biblioteca Angular para busca de CEP e endereços pelo serviço <a class="md-link" href="https://viacep.com.br">ViaCep</a>.
 
 ![npm-publish](https://github.com/brunoc107/ngx-viacep/workflows/npm-publish/badge.svg)
 ![npm (scoped)](https://img.shields.io/npm/v/@brunoc/ngx-viacep)

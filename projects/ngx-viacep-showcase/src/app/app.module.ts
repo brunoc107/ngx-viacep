@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxViacepModule } from '@brunoc/ngx-viacep';
 import {MarkdownModule} from "ngx-markdown";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {MarkdownModule} from "ngx-markdown";
     BrowserModule,
     AppRoutingModule,
     NgxViacepModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

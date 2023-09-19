@@ -189,4 +189,4 @@ try {
 
 ## License
 
-MIT © [Bruno Carvalho](mailto:brunocarvalho107@gmail.com)
+MIT © <a class="md-link" href="mailto:brunocarvalho107@gmail.com">brunoc</a>

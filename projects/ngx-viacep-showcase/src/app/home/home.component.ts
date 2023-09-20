@@ -6,12 +6,6 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent {
   public markdownUrl = 'assets/README.md';
-
-  constructor() { }
-
-  ngOnInit() {}
-
 }

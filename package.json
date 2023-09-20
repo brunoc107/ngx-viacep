@@ -24,7 +24,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run page-config && ng serve",
     "build": "ng build",
     "build:lib": "npm run build @brunoc/ngx-viacep",
     "build:lib:prod": "npm run build @brunoc/ngx-viacep -c production",

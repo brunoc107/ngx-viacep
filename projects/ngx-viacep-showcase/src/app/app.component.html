@@ -1,18 +1,14 @@
 <div class="min-h-full">
-  <nav class="bg-gray-800">
+  <nav class="bg-gray-800 md:py-1 py-2">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-center">
-        <div class="flex items-center">
-          <a class="flex-shrink-0" routerLink="">
-            <img class="h-8 w-8" width="32" height="32" priority="" ngSrc="assets/favicon-32.png" alt="@brunoc/ngx-viacep">
-          </a>
-          <div>
-            <div class="ml-10 flex items-baseline space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="text-white rounded-md px-3 py-2 text-sm font-medium" routerLinkActive="bg-gray-900" routerLink="" [routerLinkActiveOptions]="{exact: true}" aria-current="page">Início</a>
-              <a href="#" class="text-white rounded-md px-3 py-2 text-sm font-medium" routerLinkActive="bg-gray-900" routerLink="busca-cep" aria-current="page">Buscar CEP</a>
-              <a href="#" class="text-white rounded-md px-3 py-2 text-sm font-medium" routerLinkActive="bg-gray-900" routerLink="busca-endereco" aria-current="page">Buscar Endereço</a>
-            </div>
+      <div class="flex h-16 justify-center md:justify-start">
+        <div class="flex items-center justify-center">
+          <div class="flex items-stretch flex-grow space-x-4 justify-center">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="flex items-center text-white rounded-md px-3 py-2 text-sm md:text-xl font-medium" routerLinkActive="bg-gray-900" routerLink="" [routerLinkActiveOptions]="{exact: true}" aria-current="page">Início</a>
+            <a href="#" class="flex items-center text-white rounded-md px-3 py-2 text-sm md:text-xl font-medium" routerLinkActive="bg-gray-900" routerLink="busca-cep" aria-current="page">Buscar CEP</a>
+            <a href="#" class="flex items-center text-white rounded-md px-3 py-2 text-sm md:text-xl font-medium" routerLinkActive="bg-gray-900" routerLink="busca-endereco" aria-current="page">Buscar Endereço</a>
+            <a href="https://github.com/brunoc107/ngx-viacep/fork" target="_blank" class="hidden md:flex items-center text-white rounded-md px-3 py-2 text-sm md:text-xl font-medium">Fork on GitHub</a>
           </div>
         </div>
       </div>
@@ -23,10 +19,11 @@
     <router-outlet></router-outlet>
   </div>
 
-
-  <map name="image-map">
-    <area target="_blank" alt="Fork me on GitHub" title="Fork me on GitHub" href="https://github.com/brunoc107/ngx-viacep/fork" coords="9,0,118,108,118,65,53,0" shape="poly">
-  </map>
-
-  <img class="absolute top-0 right-0" priority="" ngSrc="assets/fork-me.png" usemap="#image-map" height="119" width="119" alt="Fork me on GitHub"/>
+  <a
+    href="https://github.com/brunoc107/ngx-viacep/fork"
+    target="_blank"
+    class="md:hidden fixed bg-gray-900 hover:bg-gray-800 active:bg-gray-700 text-white md:text-2xl text-xl right-0 bottom-0 md:p-5 p-4 rounded-full mr-5 mb-5"
+  >
+    Fork on GitHub!
+  </a>
 </div>

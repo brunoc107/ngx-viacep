@@ -4,12 +4,10 @@
   </div>
 </header>
 <main>
-  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-
-
+  <div class="px-4 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
     <div class="flex flex-column justify-center mx-auto max-w-7xl">
-
       <div class="min-w-full md:min-w-none">
+
         <div class="rounded-xl p-3 bg-white shadow mb-3">
           <input class="block w-full border-2 p-3 rounded-lg outline-none focus:border-blue-500 focus:border-2 mb-3" [(ngModel)]="uf" placeholder="Estado (sigla)">
           <input class="block w-full border-2 p-3 rounded-lg outline-none focus:border-blue-500 focus:border-2 mb-3" [(ngModel)]="municipio" placeholder="Cidade">
@@ -27,6 +25,7 @@
         <div class="rounded-xl p-3 bg-red-400 shadow" role="alert" *ngIf="error; else addr">
           {{errorMessage}}
         </div>
+
         <ng-template #addr>
           <app-address-list
             *ngIf="enderecos"

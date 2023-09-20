@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.1](https://github.com/brunoc107/ngx-viacep/compare/v3.4.0...v3.4.1) (2023-09-20)
+
 ## [3.4.0](https://github.com/brunoc107/ngx-viacep/compare/v3.1.0...v3.4.0) (2023-09-20)
 
 

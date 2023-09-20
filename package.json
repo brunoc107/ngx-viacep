@@ -39,7 +39,8 @@
     "page-build": "ng build ngx-viacep-showcase --base-href \"https://brunoc107.github.io/ngx-viacep/\" -c production",
     "page-deploy": "ngh --dir dist/ngx-viacep-showcase",
     "page-after": "rm projects/ngx-viacep-showcase/src/assets/README.md",
-    "github-page": "npm run build:lib:prod && npm run page-config && npm run page-build && npm run page-deploy && npm run page-after"
+    "github-page": "npm run build:lib:prod && npm run page-config && npm run page-build && npm run page-deploy && npm run page-after",
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
